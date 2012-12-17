@@ -107,8 +107,7 @@
 				F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
 			);
-			name = TiltShiftr;
-			path = TiltShift;
+			path = TiltShiftr;
 			sourceTree = "<group>";
 		};
 		F921BBA4167F1ECD001B33BF /* Supporting Files */ = {
@@ -284,8 +283,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TiltShift/TiltShiftr-Prefix.pch";
-				INFOPLIST_FILE = "TiltShift/TiltShiftr-Info.plist";
+				GCC_PREFIX_HEADER = "TiltShiftr/TiltShiftr-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/TiltShiftr/TiltShiftr-Info.plist";
 				PRODUCT_NAME = TiltShiftr;
 				WRAPPER_EXTENSION = app;
 			};
@@ -295,8 +294,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TiltShift/TiltShiftr-Prefix.pch";
-				INFOPLIST_FILE = "TiltShift/TiltShiftr-Info.plist";
+				GCC_PREFIX_HEADER = "TiltShiftr/TiltShiftr-Prefix.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/TiltShiftr/TiltShiftr-Info.plist";
 				PRODUCT_NAME = TiltShiftr;
 				WRAPPER_EXTENSION = app;
 			};
