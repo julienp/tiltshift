@@ -18,6 +18,10 @@
 		F921BBB4167F1ECD001B33BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F921BBB3167F1ECD001B33BF /* Default-568h@2x.png */; };
 		F921BBB7167F1ECD001B33BF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F921BBB5167F1ECD001B33BF /* MainStoryboard.storyboard */; };
 		F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921BBB9167F1ECD001B33BF /* JPViewController.m */; };
+		F921BBC5167F2093001B33BF /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F921BBC4167F2093001B33BF /* example.jpg */; };
+		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
+		F9AB881B167F396B00C57101 /* 168-upload-photo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */; };
+		F9AB881C167F396B00C57101 /* 168-upload-photo-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		F921BBB6167F1ECD001B33BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		F921BBB8167F1ECD001B33BF /* JPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPViewController.h; sourceTree = "<group>"; };
 		F921BBB9167F1ECD001B33BF /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
+		F921BBC4167F2093001B33BF /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
+		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2.png"; sourceTree = "<group>"; };
+		F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */,
 				F921BB9E167F1ECD001B33BF /* UIKit.framework in Frameworks */,
 				F921BBA0167F1ECD001B33BF /* Foundation.framework in Frameworks */,
 				F921BBA2167F1ECD001B33BF /* CoreGraphics.framework in Frameworks */,
@@ -73,6 +82,7 @@
 		F921BB9C167F1ECD001B33BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F921BBCB167F23D7001B33BF /* CoreImage.framework */,
 				F921BB9D167F1ECD001B33BF /* UIKit.framework */,
 				F921BB9F167F1ECD001B33BF /* Foundation.framework */,
 				F921BBA1167F1ECD001B33BF /* CoreGraphics.framework */,
@@ -96,6 +106,9 @@
 		F921BBA4167F1ECD001B33BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */,
+				F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */,
+				F921BBC4167F2093001B33BF /* example.jpg */,
 				F921BBA5167F1ECD001B33BF /* TiltShift-Info.plist */,
 				F921BBA6167F1ECD001B33BF /* InfoPlist.strings */,
 				F921BBA9167F1ECD001B33BF /* main.m */,
@@ -164,6 +177,9 @@
 				F921BBB2167F1ECD001B33BF /* Default@2x.png in Resources */,
 				F921BBB4167F1ECD001B33BF /* Default-568h@2x.png in Resources */,
 				F921BBB7167F1ECD001B33BF /* MainStoryboard.storyboard in Resources */,
+				F921BBC5167F2093001B33BF /* example.jpg in Resources */,
+				F9AB881B167F396B00C57101 /* 168-upload-photo-2.png in Resources */,
+				F9AB881C167F396B00C57101 /* 168-upload-photo-2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +309,7 @@
 				F921BBBF167F1ECD001B33BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
