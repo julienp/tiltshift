@@ -22,6 +22,8 @@
 		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
 		F9AB881B167F396B00C57101 /* 168-upload-photo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */; };
 		F9AB881C167F396B00C57101 /* 168-upload-photo-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */; };
+		F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */; };
+		F9AB882B167F41E600C57101 /* example2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB882A167F41E600C57101 /* example2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +47,9 @@
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2.png"; sourceTree = "<group>"; };
 		F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2@2x.png"; sourceTree = "<group>"; };
+		F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPResize.h; sourceTree = "<group>"; };
+		F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPResize.m; sourceTree = "<group>"; };
+		F9AB882A167F41E600C57101 /* example2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,8 @@
 				F921BBB5167F1ECD001B33BF /* MainStoryboard.storyboard */,
 				F921BBB8167F1ECD001B33BF /* JPViewController.h */,
 				F921BBB9167F1ECD001B33BF /* JPViewController.m */,
+				F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */,
+				F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
 			);
 			path = TiltShift;
@@ -109,6 +116,7 @@
 				F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */,
 				F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */,
 				F921BBC4167F2093001B33BF /* example.jpg */,
+				F9AB882A167F41E600C57101 /* example2.jpg */,
 				F921BBA5167F1ECD001B33BF /* TiltShift-Info.plist */,
 				F921BBA6167F1ECD001B33BF /* InfoPlist.strings */,
 				F921BBA9167F1ECD001B33BF /* main.m */,
@@ -180,6 +188,7 @@
 				F921BBC5167F2093001B33BF /* example.jpg in Resources */,
 				F9AB881B167F396B00C57101 /* 168-upload-photo-2.png in Resources */,
 				F9AB881C167F396B00C57101 /* 168-upload-photo-2@2x.png in Resources */,
+				F9AB882B167F41E600C57101 /* example2.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +202,7 @@
 				F921BBAA167F1ECD001B33BF /* main.m in Sources */,
 				F921BBAE167F1ECD001B33BF /* JPAppDelegate.m in Sources */,
 				F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */,
+				F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +265,7 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -263,6 +273,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
