@@ -36,6 +36,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackTranslucent];
+    self.wantsFullScreenLayout = YES;
     self.toolbarHidden = NO;
     self.center = 0.5;
     self.blur = 10;
@@ -194,15 +196,15 @@
     CGRect frame = self.divider.frame;
     CGFloat imageHeight = self.image.size.height * self.imageView.jp_contentScale;
     CGFloat imageOffset = (self.imageView.bounds.size.height - imageHeight) / 2; //image is centered in imageview
-
     CGFloat y = frame.origin.y + translation.y;
-
-    y = MAX(y, imageOffset - 20);
-    y = MIN(y, self.imageView.bounds.size.height - imageOffset - 20);
+    CGFloat statusbar = 20; //not sure why this is necessary
+    CGFloat min_gap = 10;
+    y = MAX(y, imageOffset - statusbar + min_gap);
+    y = MIN(y, self.imageView.bounds.size.height - imageOffset - statusbar - min_gap);
     frame.origin.y = y;
     self.divider.frame = frame;
 
-    self.center = (y - imageOffset + 20) / imageHeight;
+    self.center = (y - imageOffset + statusbar) / imageHeight;
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         self.dragging = YES;
         [self liveUpdate];
@@ -247,6 +249,7 @@
         frame.origin.y -= frame.size.height;
         self.toolbar.frame = frame;
         self.toolbarHidden = NO;
+        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     } else {
         CATransition *transition = [CATransition animation];
         transition.duration = 0.25;
@@ -258,6 +261,7 @@
         frame.origin.y += frame.size.height;
         self.toolbar.frame = frame;
         self.toolbarHidden = YES;
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
 }
 
