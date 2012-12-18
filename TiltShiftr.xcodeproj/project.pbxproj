@@ -20,6 +20,7 @@
 		F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921BBB9167F1ECD001B33BF /* JPViewController.m */; };
 		F921BBC5167F2093001B33BF /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F921BBC4167F2093001B33BF /* example.jpg */; };
 		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
+		F99049A416806D1900769B09 /* JPTiltShift.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049A316806D1900769B09 /* JPTiltShift.m */; };
 		F9AB881B167F396B00C57101 /* 168-upload-photo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */; };
 		F9AB881C167F396B00C57101 /* 168-upload-photo-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */; };
 		F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */; };
@@ -45,6 +46,8 @@
 		F921BBB9167F1ECD001B33BF /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
 		F921BBC4167F2093001B33BF /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F99049A216806D1900769B09 /* JPTiltShift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTiltShift.h; sourceTree = "<group>"; };
+		F99049A316806D1900769B09 /* JPTiltShift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTiltShift.m; sourceTree = "<group>"; };
 		F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2.png"; sourceTree = "<group>"; };
 		F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2@2x.png"; sourceTree = "<group>"; };
 		F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPResize.h; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				F921BBB5167F1ECD001B33BF /* MainStoryboard.storyboard */,
 				F921BBB8167F1ECD001B33BF /* JPViewController.h */,
 				F921BBB9167F1ECD001B33BF /* JPViewController.m */,
+				F99049A216806D1900769B09 /* JPTiltShift.h */,
+				F99049A316806D1900769B09 /* JPTiltShift.m */,
 				F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */,
 				F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
@@ -203,6 +208,7 @@
 				F921BBAE167F1ECD001B33BF /* JPAppDelegate.m in Sources */,
 				F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */,
 				F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */,
+				F99049A416806D1900769B09 /* JPTiltShift.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

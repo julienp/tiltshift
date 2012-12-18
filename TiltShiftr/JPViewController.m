@@ -9,6 +9,7 @@
 #import "JPViewController.h"
 #import <CoreImage/CoreImage.h>
 #import "UIImage_JPResize.h"
+#import "JPTiltShift.h"
 
 @interface JPViewController ()
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
@@ -146,52 +147,24 @@
 
 - (CGImageRef)processImage:(CGImageRef)cgimage
 {
-    CGFloat top = 1 - MAX(self.center - 0.25, 0.0);
+    CGFloat top = 1 - MAX(self.center - 0.25, 0.0); //Quartz origin is bottom left
     CGFloat bottom = 1 - MIN(self.center + 0.25, 1.0);
     CGFloat center = 1 - self.center;
-    CGFloat height = CGImageGetHeight(cgimage);
-    CGRect cropRect = (CGRect){.origin = {0, 0}, .size = {CGImageGetWidth(cgimage), CGImageGetHeight(cgimage)}};
     CIImage *image = [CIImage imageWithCGImage:cgimage];
 
-    //blur
-    CIFilter *blur = [CIFilter filterWithName:@"CIGaussianBlur"
-                                  keysAndValues:@"inputImage", image,
-                        @"inputRadius", @(self.blur), nil];
-    blur = [CIFilter filterWithName:@"CICrop"
-                             keysAndValues:@"inputImage", blur.outputImage,
-                   @"inputRectangle", [CIVector vectorWithCGRect:cropRect], nil];
-    //gradient mask
-    CIFilter *topGradient = [CIFilter filterWithName:@"CILinearGradient"
-                                       keysAndValues:@"inputPoint0", [CIVector vectorWithX:0 Y:(top * height)],
-                             @"inputColor0", [CIColor colorWithRed:0 green:1 blue:0 alpha:1],
-                             @"inputPoint1", [CIVector vectorWithX:0 Y:(center * height)],
-                             @"inputColor1", [CIColor colorWithRed:0 green:1 blue:0 alpha:0], nil];
-    CIFilter *bottomGradient = [CIFilter filterWithName:@"CILinearGradient"
-                                       keysAndValues:@"inputPoint0", [CIVector vectorWithX:0 Y:(bottom * height)],
-                             @"inputColor0", [CIColor colorWithRed:0 green:1 blue:0 alpha:1],
-                             @"inputPoint1", [CIVector vectorWithX:0 Y:(center * height)],
-                             @"inputColor1", [CIColor colorWithRed:0 green:1 blue:0 alpha:0], nil];
-    topGradient = [CIFilter filterWithName:@"CICrop"
-                                   keysAndValues:@"inputImage", topGradient.outputImage,
-                   @"inputRectangle", [CIVector vectorWithCGRect:cropRect], nil];
-    bottomGradient = [CIFilter filterWithName:@"CICrop"
-                                   keysAndValues:@"inputImage", bottomGradient.outputImage,
-                         @"inputRectangle", [CIVector vectorWithCGRect:cropRect], nil];
-    CIFilter *gradients = [CIFilter filterWithName:@"CIAdditionCompositing"
-                                     keysAndValues:@"inputImage", topGradient.outputImage,
-                           @"inputBackgroundImage", bottomGradient.outputImage, nil];
-
-    //blend
-    CIFilter *tiltShift = [CIFilter filterWithName:@"CIBlendWithMask"
-                                     keysAndValues:@"inputImage", blur.outputImage,
-                           @"inputBackgroundImage", image,
-                           @"inputMaskImage", gradients.outputImage, nil];
+    JPTiltShift *filter = [[JPTiltShift alloc] init];
+    [filter setDefaults];
+    filter.inputImage = image;
+    filter.inputRadius = 10;
+    filter.inputTop = top;
+    filter.inputCenter = center;
+    filter.inputBottom = bottom;
 
     static CIContext *context;
     if (context == nil) {
         context = [CIContext contextWithOptions:nil];
     }
-    CIImage *result = tiltShift.outputImage;
+    CIImage *result = filter.outputImage;
     CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];
     return cgImage;
 }
