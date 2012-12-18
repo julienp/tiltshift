@@ -14,7 +14,7 @@
 #import "JPTiltShift.h"
 #import "PopoverView.h"
 
-@interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *editButton;
 @property (nonatomic, strong) UIView *divider;
@@ -23,6 +23,7 @@
 @property (nonatomic, assign) CGFloat center;
 @property (nonatomic, assign) CGFloat blur;
 @property (nonatomic, assign, getter = isDragging) BOOL dragging;
+@property (nonatomic, strong) NSMutableArray *imageSources;
 @end
 
 @implementation JPViewController
@@ -32,14 +33,11 @@
     [super viewDidLoad];
     self.center = 0.5;
     self.blur = 15;
-    self.originalImage = [UIImage imageNamed:@"example2.jpg"];
-    self.image = [UIImage imageWithImage:self.originalImage scaledToSizeWithSameAspectRatio:CGSizeMake(640, 853)]; //TODO: size
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.imageView.image = self.image;
     self.imageView.userInteractionEnabled = YES;
 }
 
-- (void)viewWillLayoutSubviews
+- (void)setupDividers
 {
     CGFloat width = self.imageView.bounds.size.width;
     CGFloat height = self.imageView.bounds.size.height;
@@ -54,10 +52,12 @@
     [self.imageView addSubview:self.divider];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    [self liveUpdate];
+    [super viewDidAppear:animated];
+    if (self.image == nil) {
+        [self loadImage:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,17 +70,16 @@
     [super setEditing:editing animated:animated];
     float duration = animated ? 0.25 : 0;
     if (editing) {
+        if (self.divider == nil) {
+            [self setupDividers];
+        }
         [UIView animateWithDuration:duration animations:^{
-            [self.editButton setStyle:UIBarButtonItemStyleDone];
-            self.editButton.title = @"Done";
             self.divider.alpha = 1.0;
         } completion:^(BOOL finished) {
             self.divider.userInteractionEnabled = YES;
         }];
     } else {
         [UIView animateWithDuration:duration animations:^{
-            [self.editButton setStyle:UIBarButtonItemStyleBordered];
-            self.editButton.title = @"Edit";
             self.divider.alpha = 0.0;
         } completion:^(BOOL finished) {
             self.divider.userInteractionEnabled = NO;
@@ -95,20 +94,66 @@
 
 - (IBAction)loadImage:(id)sender
 {
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.delegate = self;
+    self.imageSources = [[NSMutableArray alloc] init];
+    NSMutableArray *buttonTitles = [[NSMutableArray alloc] init];
+
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
-        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-    } else {
-        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        [self.imageSources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeCamera]];
+        [buttonTitles addObject:NSLocalizedString(@"Take Photo", @"Take Photo")];
     }
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        [self.imageSources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypePhotoLibrary]];
+        [buttonTitles addObject:NSLocalizedString(@"Choose Existing", @"Choose Existing")];
+    } else if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeSavedPhotosAlbum]) {
+        [self.imageSources addObject:[NSNumber numberWithInteger:UIImagePickerControllerSourceTypeSavedPhotosAlbum]];
+        [buttonTitles addObject:NSLocalizedString(@"Choose Existing", @"Choose Existing")];
+    }
+
+    if (self.imageSources.count == 1) {
+        [self showPickerWithSourceType:0];
+    } else if (self.imageSources.count > 1) {
+        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+                                                                 delegate:self
+                                                        cancelButtonTitle:nil
+                                                   destructiveButtonTitle:nil
+                                                        otherButtonTitles:nil];
+        for (NSString *title in buttonTitles) {
+            [actionSheet addButtonWithTitle:title];
+        }
+        [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel")];
+        actionSheet.cancelButtonIndex = self.imageSources.count;
+        [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+    } else {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
+                                                            message:NSLocalizedString(@"There are no sources available to select a photo", @"There are no sources available to select a photo")
+                                                           delegate:nil
+                                                  cancelButtonTitle:nil
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
+}
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex < self.imageSources.count) {
+        [self showPickerWithSourceType:[self.imageSources[buttonIndex] integerValue]];
+    }
+}
+
+- (void)showPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = sourceType;
+    picker.delegate = self;
     [self presentViewController:picker animated:YES completion:nil];
 }
 
 - (IBAction)share:(id)sender
 {
-    //apply filter to original and share that
-    //need to change blur radius?
+    CGImageRef image = [self processImage:self.originalImage.CGImage];
+    UIImage *sharedImage = [UIImage imageWithCGImage:image];
+    CGImageRelease(image);
+    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[ sharedImage ] applicationActivities:nil];
+    [self presentViewController:activityViewController animated:YES completion:NULL];
 }
 
 - (IBAction)drag:(UIPanGestureRecognizer *)gestureRecognizer
@@ -136,25 +181,13 @@
 - (IBAction)blur:(id)sender event:(UIEvent *)event
 {
     UITouch *touch = [[event allTouches] anyObject];
-    CGPoint point = [touch locationInView:self.view];
-//    UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
-//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectZero];
-//    label.text = @"Blur Radius ";
-//    [container addSubview:label];
-    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 200, 44)];
-//    [container addSubview:slider];
-//    slider.translatesAutoresizingMaskIntoConstraints = NO;
-//    label.translatesAutoresizingMaskIntoConstraints = NO;
-//    NSDictionary *bindings = NSDictionaryOfVariableBindings(slider, label);
-//    [container addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[label]-|" options:0 metrics:nil views:bindings]];
-//    [container addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[slider]-|" options:0 metrics:nil views:bindings]];
-//    [container addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-[label]-[slider]-|" options:0 metrics:nil views:bindings]];
+    CGPoint point = [touch locationInView:self.view]; //TODO: should be at top center of barbuttonitem
+    UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
     [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     slider.maximumValue = 30;
     slider.minimumValue = 1;
     slider.value = self.blur;
     slider.continuous = NO;
-//    [PopoverView showPopoverAtPoint:point inView:self.view withContentView:container delegate:nil];
     [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"Blur Radius" withContentView:slider delegate:nil];
 }
 
@@ -189,7 +222,7 @@
     CGFloat bottom = 1 - MIN(self.center + 0.25, 1.0);
     CGFloat center = 1 - self.center;
     CIImage *image = [CIImage imageWithCGImage:cgimage];
-    CGFloat blurScale = self.image.size.width / self.originalImage.size.width;
+    CGFloat blurScale = CGImageGetWidth(cgimage) / self.originalImage.size.width;
 
     JPTiltShift *filter = [[JPTiltShift alloc] init];
     [filter setDefaults];
@@ -214,7 +247,7 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     self.originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.image = [UIImage imageWithImage:self.originalImage scaledToSizeWithSameAspectRatio:self.imageView.bounds.size];
+    self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:self.imageView.bounds.size.width];
     [self liveUpdate];
 }
 

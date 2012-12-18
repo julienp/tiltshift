@@ -16,6 +16,9 @@
                                 <gestureRecognizers/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-sP-WyA">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" type="user" id="FkL-ap-hLr"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="camera" id="ia7-dD-Z7E">
                                         <connections>
@@ -29,15 +32,15 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2s8-YG-Wu1"/>
-                                    <barButtonItem style="plain" systemItem="action" id="lUM-uD-ijg">
+                                    <barButtonItem image="186-ruler.png" style="plain" id="jf7-iN-rFc">
                                         <connections>
-                                            <action selector="share:" destination="2" id="jU3-ng-YiZ"/>
+                                            <action selector="modify:" destination="2" id="Nqg-Rm-XTk"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Rmx-Nu-9LU"/>
-                                    <barButtonItem title="Edit" id="jf7-iN-rFc">
+                                    <barButtonItem style="plain" systemItem="action" id="lUM-uD-ijg">
                                         <connections>
-                                            <action selector="modify:" destination="2" id="Nqg-Rm-XTk"/>
+                                            <action selector="share:" destination="2" id="jU3-ng-YiZ"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -69,6 +72,7 @@
     </scenes>
     <resources>
         <image name="14-gear.png" width="19" height="19"/>
+        <image name="186-ruler.png" width="23" height="23"/>
     </resources>
     <classes>
         <class className="JPViewController" superclassName="UIViewController">

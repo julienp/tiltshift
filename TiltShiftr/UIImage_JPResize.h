@@ -10,6 +10,6 @@
 
 @interface UIImage (JPResize)
 
-+ (UIImage*)imageWithImage:(UIImage*)sourceImage scaledToSizeWithSameAspectRatio:(CGSize)targetSize;
++ (UIImage *)imageWithImage:(UIImage *)sourceImage scaledToWidth:(CGFloat)width;
 
 @end

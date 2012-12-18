@@ -27,6 +27,8 @@
 		F99049BB16808D1000769B09 /* 14-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049B916808D1000769B09 /* 14-gear.png */; };
 		F99049BC16808D1000769B09 /* 14-gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049BA16808D1000769B09 /* 14-gear@2x.png */; };
 		F99049BE1680926000769B09 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049BD1680926000769B09 /* icon.png */; };
+		F99049C1168093F600769B09 /* 186-ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049BF168093F600769B09 /* 186-ruler.png */; };
+		F99049C2168093F600769B09 /* 186-ruler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049C0168093F600769B09 /* 186-ruler@2x.png */; };
 		F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */; };
 		F9AB882B167F41E600C57101 /* example2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB882A167F41E600C57101 /* example2.jpg */; };
 /* End PBXBuildFile section */
@@ -58,7 +60,9 @@
 		F99049B716807DB600769B09 /* PopoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		F99049B916808D1000769B09 /* 14-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-gear.png"; sourceTree = "<group>"; };
 		F99049BA16808D1000769B09 /* 14-gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-gear@2x.png"; sourceTree = "<group>"; };
-		F99049BD1680926000769B09 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		F99049BD1680926000769B09 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		F99049BF168093F600769B09 /* 186-ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "186-ruler.png"; sourceTree = "<group>"; };
+		F99049C0168093F600769B09 /* 186-ruler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "186-ruler@2x.png"; sourceTree = "<group>"; };
 		F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPResize.h; sourceTree = "<group>"; };
 		F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPResize.m; sourceTree = "<group>"; };
 		F9AB882A167F41E600C57101 /* example2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example2.jpg; sourceTree = "<group>"; };
@@ -84,7 +88,6 @@
 		F921BB8E167F1ECD001B33BF = {
 			isa = PBXGroup;
 			children = (
-				F99049BD1680926000769B09 /* icon.png */,
 				F921BBA3167F1ECD001B33BF /* TiltShiftr */,
 				F921BB9C167F1ECD001B33BF /* Frameworks */,
 				F921BB9A167F1ECD001B33BF /* Products */,
@@ -134,6 +137,9 @@
 		F921BBA4167F1ECD001B33BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F99049BD1680926000769B09 /* icon.png */,
+				F99049BF168093F600769B09 /* 186-ruler.png */,
+				F99049C0168093F600769B09 /* 186-ruler@2x.png */,
 				F99049B916808D1000769B09 /* 14-gear.png */,
 				F99049BA16808D1000769B09 /* 14-gear@2x.png */,
 				F921BBC4167F2093001B33BF /* example.jpg */,
@@ -211,6 +217,8 @@
 				F99049BB16808D1000769B09 /* 14-gear.png in Resources */,
 				F99049BC16808D1000769B09 /* 14-gear@2x.png in Resources */,
 				F99049BE1680926000769B09 /* icon.png in Resources */,
+				F99049C1168093F600769B09 /* 186-ruler.png in Resources */,
+				F99049C2168093F600769B09 /* 186-ruler@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
