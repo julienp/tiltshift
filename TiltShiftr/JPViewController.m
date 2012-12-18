@@ -14,9 +14,10 @@
 #import "JPTiltShift.h"
 #import "PopoverView.h"
 
-@interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, PopoverViewDelegate>
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *editButton;
+@property (nonatomic, strong) PopoverView *popoverView;
 @property (nonatomic, strong) UIView *divider;
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) UIImage *originalImage;
@@ -32,7 +33,7 @@
 {
     [super viewDidLoad];
     self.center = 0.5;
-    self.blur = 15;
+    self.blur = 10;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.userInteractionEnabled = YES;
 }
@@ -41,15 +42,25 @@
 {
     CGFloat width = self.imageView.bounds.size.width;
     CGFloat height = self.imageView.bounds.size.height;
-    self.divider = [[UIView alloc] initWithFrame:CGRectMake(0, height * 0.5 - 2, width, 44)];
+    self.divider = [[UIView alloc] initWithFrame:CGRectMake(0, height * self.center - 22, width, 44)];
     self.divider.backgroundColor = [UIColor clearColor];
     self.divider.alpha = 0.0;
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 18, width, 8)];
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 18, 1000, 8)]; //long line is long
     line.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
     [self.divider addSubview:line];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
     [self.divider addGestureRecognizer:recognizer];
     [self.imageView addSubview:self.divider];
+}
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewWillLayoutSubviews];
+    CGFloat height = self.imageView.bounds.size.height;
+    CGRect frame = self.divider.frame;
+    frame.origin.y = height * self.center - 22;
+    frame.size.width = self.imageView.frame.size.width;
+    self.divider.frame = frame;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -58,6 +69,11 @@
     if (self.image == nil) {
         [self loadImage:nil];
     }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    [self.popoverView dismiss];
 }
 
 - (void)didReceiveMemoryWarning
@@ -184,11 +200,12 @@
     CGPoint point = [touch locationInView:self.view]; //TODO: should be at top center of barbuttonitem
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
     [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
+    slider.backgroundColor = [UIColor clearColor];
     slider.maximumValue = 30;
     slider.minimumValue = 1;
     slider.value = self.blur;
     slider.continuous = NO;
-    [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"Blur Radius" withContentView:slider delegate:nil];
+    self.popoverView = [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"Blur Radius" withContentView:slider delegate:self];
 }
 
 - (IBAction)sliderChanged:(UISlider *)slider
@@ -247,8 +264,19 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
     self.originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    CGFloat scale = self.view.window.bounds.size.width * 2;
+    if (self.originalImage.size.width > self.originalImage.size.height) {
+        scale = self.view.window.bounds.size.height * 2;
+    }
     self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:self.imageView.bounds.size.width];
     [self liveUpdate];
+}
+
+#pragma mark - PopoverViewDelegate
+
+- (void)popoverViewDidDismiss:(PopoverView *)popoverView
+{
+    self.popoverView = nil;
 }
 
 @end
