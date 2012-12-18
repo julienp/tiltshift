@@ -92,7 +92,7 @@
 #define kTextColor [UIColor colorWithRed:0.329 green:0.341 blue:0.353 alpha:1]
 
 //normal text alignment
-#define kTextAlignment UITextAlignmentCenter
+#define kTextAlignment NSTextAlignmentCenter
 
 //title font
 #define kTitleFont [UIFont fontWithName:@"HelveticaNeue-Bold" size:16.f]
@@ -234,7 +234,7 @@
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withText:(NSString *)text {
     UIFont *font = kTextFont;
     
-    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:NSLineBreakByWordWrapping];
     
     UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
     textView.backgroundColor = [UIColor clearColor];
@@ -250,7 +250,7 @@
 
 - (void)showAtPoint:(CGPoint)point inView:(UIView *)view withTitle:(NSString *)title withText:(NSString *)text {
     UIFont *font = kTextFont;
-    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake([[UIScreen mainScreen] bounds].size.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:NSLineBreakByWordWrapping];
     
     UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
     textView.backgroundColor = [UIColor clearColor];
@@ -342,7 +342,7 @@
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.f, 0.f, titleSize.width, titleSize.height)];
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = kTitleFont;
-    titleLabel.textAlignment = UITextAlignmentCenter;
+    titleLabel.textAlignment = kTextAlignment;
     titleLabel.textColor = kTitleColor;
     titleLabel.text = title;
     
