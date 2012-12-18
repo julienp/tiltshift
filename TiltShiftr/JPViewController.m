@@ -10,6 +10,7 @@
 #import <CoreImage/CoreImage.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <ImageIO/ImageIO.h>
+#import <QuartzCore/QuartzCore.h>
 #import "UIImage_JPResize.h"
 #import "UIImageView_JPContentScale.h"
 #import "JPTiltShift.h"
@@ -18,6 +19,7 @@
 @interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, PopoverViewDelegate>
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *editButton;
+@property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, strong) PopoverView *popoverView;
 @property (nonatomic, strong) UIView *divider;
 @property (nonatomic, strong) UIImage *image;
@@ -26,6 +28,7 @@
 @property (nonatomic, assign) CGFloat blur;
 @property (nonatomic, assign, getter = isDragging) BOOL dragging;
 @property (nonatomic, strong) NSMutableArray *imageSources;
+@property (nonatomic, assign) BOOL toolbarHidden;
 @end
 
 @implementation JPViewController
@@ -33,40 +36,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.toolbarHidden = NO;
     self.center = 0.5;
     self.blur = 10;
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.userInteractionEnabled = YES;
 }
 
-- (void)setupDividers
-{
-    CGFloat width = self.imageView.bounds.size.width;
-    self.divider = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
-    self.divider.backgroundColor = [UIColor clearColor];
-    self.divider.alpha = 0.0;
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 568, 4)]; //max length in landscape
-    line.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
-    [self.divider addSubview:line];
-    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
-    [self.divider addGestureRecognizer:recognizer];
-    [self.imageView addSubview:self.divider];
-    [self updateDividers];
-}
-
-- (void)updateDividers
-{
-    CGFloat height = self.image.size.height * self.imageView.jp_contentScale;
-    CGFloat offset = (self.imageView.bounds.size.height - height) / 2;
-    CGRect frame = self.divider.frame;
-    frame.origin.y = offset + height * self.center - 22;
-    frame.size.width = self.imageView.frame.size.width;
-    self.divider.frame = frame;
-}
-
 - (void)viewDidLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    self.toolbarHidden = NO;
     [self updateDividers];
 }
 
@@ -109,6 +89,33 @@
         }];
     }
 }
+
+- (void)setupDividers
+{
+    CGFloat width = self.imageView.bounds.size.width;
+    self.divider = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
+    self.divider.backgroundColor = [UIColor clearColor];
+    self.divider.alpha = 0.0;
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 568, 4)]; //max length in landscape
+    line.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    [self.divider addSubview:line];
+    UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
+    [self.divider addGestureRecognizer:recognizer];
+    [self.imageView addSubview:self.divider];
+    [self updateDividers];
+}
+
+- (void)updateDividers
+{
+    CGFloat height = self.image.size.height * self.imageView.jp_contentScale;
+    CGFloat offset = (self.imageView.bounds.size.height - height) / 2;
+    CGRect frame = self.divider.frame;
+    frame.origin.y = offset + height * self.center - 22;
+    frame.size.width = self.imageView.frame.size.width;
+    self.divider.frame = frame;
+}
+
+#pragma mark - IBAction
 
 - (IBAction)modify:(id)sender
 {
@@ -155,6 +162,7 @@
         [alertView show];
     }
 }
+
 - (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex < self.imageSources.count) {
@@ -226,10 +234,35 @@
     [self liveUpdate];
 }
 
-- (IBAction)tiltShift:(id)sender
+- (IBAction)toggleToolbar:(id)sender
 {
-    [self liveUpdate];
+    if (self.toolbarHidden) {
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.25;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        transition.type = kCATransitionPush;
+        transition.subtype = kCATransitionFromTop;
+        [self.toolbar.layer addAnimation:transition forKey:nil];
+        CGRect frame = self.toolbar.frame;
+        frame.origin.y -= frame.size.height;
+        self.toolbar.frame = frame;
+        self.toolbarHidden = NO;
+    } else {
+        CATransition *transition = [CATransition animation];
+        transition.duration = 0.25;
+        transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        transition.type = kCATransitionPush;
+        transition.subtype = kCATransitionFromBottom;
+        [self.toolbar.layer addAnimation:transition forKey:nil];
+        CGRect frame = self.toolbar.frame;
+        frame.origin.y += frame.size.height;
+        self.toolbar.frame = frame;
+        self.toolbarHidden = YES;
+    }
 }
+
+
+#pragma mark - Update Image
 
 - (void)liveUpdate
 {

@@ -30,6 +30,7 @@
 		F99049C1168093F600769B09 /* 186-ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049BF168093F600769B09 /* 186-ruler.png */; };
 		F99049C2168093F600769B09 /* 186-ruler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049C0168093F600769B09 /* 186-ruler@2x.png */; };
 		F99049C91680C20300769B09 /* UIImageView_JPContentScale.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */; };
+		F99049CF1680CA0000769B09 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99049CE1680CA0000769B09 /* QuartzCore.framework */; };
 		F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */; };
 		F9AB882B167F41E600C57101 /* example2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB882A167F41E600C57101 /* example2.jpg */; };
 /* End PBXBuildFile section */
@@ -66,6 +67,7 @@
 		F99049C0168093F600769B09 /* 186-ruler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "186-ruler@2x.png"; sourceTree = "<group>"; };
 		F99049C71680C20300769B09 /* UIImageView_JPContentScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageView_JPContentScale.h; sourceTree = "<group>"; };
 		F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageView_JPContentScale.m; sourceTree = "<group>"; };
+		F99049CE1680CA0000769B09 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPResize.h; sourceTree = "<group>"; };
 		F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPResize.m; sourceTree = "<group>"; };
 		F9AB882A167F41E600C57101 /* example2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example2.jpg; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99049CF1680CA0000769B09 /* QuartzCore.framework in Frameworks */,
 				F99049AD168075D000769B09 /* ImageIO.framework in Frameworks */,
 				F99049AB1680730900769B09 /* AssetsLibrary.framework in Frameworks */,
 				F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */,
@@ -108,6 +111,7 @@
 		F921BB9C167F1ECD001B33BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F99049CE1680CA0000769B09 /* QuartzCore.framework */,
 				F99049AA1680730900769B09 /* AssetsLibrary.framework */,
 				F921BBCB167F23D7001B33BF /* CoreImage.framework */,
 				F99049AC168075D000769B09 /* ImageIO.framework */,
