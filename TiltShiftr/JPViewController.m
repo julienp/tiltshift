@@ -221,7 +221,7 @@
     //Hacky way to get the location of the barbutton
     UITouch *touch = [[event allTouches] anyObject];
     UIView *view = touch.view;
-    CGRect frame = [view convertRect:view.bounds toView:self.view.window];
+    CGRect frame = [view convertRect:view.bounds toView:self.view];
     CGPoint point = frame.origin;
     point.x += frame.size.width / 2;
     point.y += 5;
@@ -269,7 +269,6 @@
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
 }
-
 
 #pragma mark - Update Image
 
