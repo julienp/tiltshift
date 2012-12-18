@@ -15,19 +15,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vI9-K8-c1R">
                                 <gestureRecognizers/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-sP-WyA">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-sP-WyA">
                                 <items>
-                                    <barButtonItem image="168-upload-photo-2.png" style="plain" id="ia7-dD-Z7E"/>
-                                    <barButtonItem style="plain" systemItem="action" id="lUM-uD-ijg"/>
+                                    <barButtonItem style="plain" systemItem="camera" id="ia7-dD-Z7E">
+                                        <connections>
+                                            <action selector="loadImage:" destination="2" id="Z0Q-Zo-7Fq"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="ddX-5E-uA2"/>
+                                    <barButtonItem image="14-gear.png" style="plain" id="JFt-Iv-6K7">
+                                        <connections>
+                                            <action selector="blur:event:" destination="2" id="DVn-k7-bhv"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="2s8-YG-Wu1"/>
+                                    <barButtonItem style="plain" systemItem="action" id="lUM-uD-ijg">
+                                        <connections>
+                                            <action selector="share:" destination="2" id="jU3-ng-YiZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Rmx-Nu-9LU"/>
                                     <barButtonItem title="Edit" id="jf7-iN-rFc">
                                         <connections>
                                             <action selector="modify:" destination="2" id="Nqg-Rm-XTk"/>
-                                        </connections>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="HRR-Di-O3E"/>
-                                    <barButtonItem title="TiltShift" id="f3x-5j-BIg">
-                                        <connections>
-                                            <action selector="tiltShift:" destination="2" id="47b-wS-PVe"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -54,12 +64,31 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="721" y="141"/>
+            <point key="canvasLocation" x="168" y="157"/>
         </scene>
     </scenes>
     <resources>
-        <image name="168-upload-photo-2.png" width="22" height="25"/>
+        <image name="14-gear.png" width="19" height="19"/>
     </resources>
+    <classes>
+        <class className="JPViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JPViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="blur:event:"/>
+                <relationship kind="action" name="drag:" candidateClass="UIPanGestureRecognizer"/>
+                <relationship kind="action" name="loadImage:"/>
+                <relationship kind="action" name="modify:"/>
+                <relationship kind="action" name="share:"/>
+                <relationship kind="action" name="sliderChanged:" candidateClass="UISlider"/>
+                <relationship kind="action" name="tiltShift:"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

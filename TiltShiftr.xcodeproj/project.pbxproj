@@ -21,8 +21,11 @@
 		F921BBC5167F2093001B33BF /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F921BBC4167F2093001B33BF /* example.jpg */; };
 		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
 		F99049A416806D1900769B09 /* JPTiltShift.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049A316806D1900769B09 /* JPTiltShift.m */; };
-		F9AB881B167F396B00C57101 /* 168-upload-photo-2.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */; };
-		F9AB881C167F396B00C57101 /* 168-upload-photo-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */; };
+		F99049AB1680730900769B09 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99049AA1680730900769B09 /* AssetsLibrary.framework */; };
+		F99049AD168075D000769B09 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99049AC168075D000769B09 /* ImageIO.framework */; };
+		F99049B816807E4D00769B09 /* PopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049B716807DB600769B09 /* PopoverView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		F99049BB16808D1000769B09 /* 14-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049B916808D1000769B09 /* 14-gear.png */; };
+		F99049BC16808D1000769B09 /* 14-gear@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049BA16808D1000769B09 /* 14-gear@2x.png */; };
 		F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */; };
 		F9AB882B167F41E600C57101 /* example2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB882A167F41E600C57101 /* example2.jpg */; };
 /* End PBXBuildFile section */
@@ -48,8 +51,12 @@
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F99049A216806D1900769B09 /* JPTiltShift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTiltShift.h; sourceTree = "<group>"; };
 		F99049A316806D1900769B09 /* JPTiltShift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTiltShift.m; sourceTree = "<group>"; };
-		F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2.png"; sourceTree = "<group>"; };
-		F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "168-upload-photo-2@2x.png"; sourceTree = "<group>"; };
+		F99049AA1680730900769B09 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		F99049AC168075D000769B09 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		F99049B616807DB600769B09 /* PopoverView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PopoverView.h; sourceTree = "<group>"; };
+		F99049B716807DB600769B09 /* PopoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
+		F99049B916808D1000769B09 /* 14-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-gear.png"; sourceTree = "<group>"; };
+		F99049BA16808D1000769B09 /* 14-gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-gear@2x.png"; sourceTree = "<group>"; };
 		F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPResize.h; sourceTree = "<group>"; };
 		F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPResize.m; sourceTree = "<group>"; };
 		F9AB882A167F41E600C57101 /* example2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example2.jpg; sourceTree = "<group>"; };
@@ -60,6 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99049AD168075D000769B09 /* ImageIO.framework in Frameworks */,
+				F99049AB1680730900769B09 /* AssetsLibrary.framework in Frameworks */,
 				F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */,
 				F921BB9E167F1ECD001B33BF /* UIKit.framework in Frameworks */,
 				F921BBA0167F1ECD001B33BF /* Foundation.framework in Frameworks */,
@@ -90,7 +99,9 @@
 		F921BB9C167F1ECD001B33BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F99049AA1680730900769B09 /* AssetsLibrary.framework */,
 				F921BBCB167F23D7001B33BF /* CoreImage.framework */,
+				F99049AC168075D000769B09 /* ImageIO.framework */,
 				F921BB9D167F1ECD001B33BF /* UIKit.framework */,
 				F921BB9F167F1ECD001B33BF /* Foundation.framework */,
 				F921BBA1167F1ECD001B33BF /* CoreGraphics.framework */,
@@ -110,6 +121,8 @@
 				F99049A316806D1900769B09 /* JPTiltShift.m */,
 				F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */,
 				F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */,
+				F99049B616807DB600769B09 /* PopoverView.h */,
+				F99049B716807DB600769B09 /* PopoverView.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
 			);
 			path = TiltShiftr;
@@ -118,8 +131,8 @@
 		F921BBA4167F1ECD001B33BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				F9AB8819167F396B00C57101 /* 168-upload-photo-2.png */,
-				F9AB881A167F396B00C57101 /* 168-upload-photo-2@2x.png */,
+				F99049B916808D1000769B09 /* 14-gear.png */,
+				F99049BA16808D1000769B09 /* 14-gear@2x.png */,
 				F921BBC4167F2093001B33BF /* example.jpg */,
 				F9AB882A167F41E600C57101 /* example2.jpg */,
 				F921BBA5167F1ECD001B33BF /* TiltShiftr-Info.plist */,
@@ -191,9 +204,9 @@
 				F921BBB4167F1ECD001B33BF /* Default-568h@2x.png in Resources */,
 				F921BBB7167F1ECD001B33BF /* MainStoryboard.storyboard in Resources */,
 				F921BBC5167F2093001B33BF /* example.jpg in Resources */,
-				F9AB881B167F396B00C57101 /* 168-upload-photo-2.png in Resources */,
-				F9AB881C167F396B00C57101 /* 168-upload-photo-2@2x.png in Resources */,
 				F9AB882B167F41E600C57101 /* example2.jpg in Resources */,
+				F99049BB16808D1000769B09 /* 14-gear.png in Resources */,
+				F99049BC16808D1000769B09 /* 14-gear@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F99049B816807E4D00769B09 /* PopoverView.m in Sources */,
 				F921BBAA167F1ECD001B33BF /* main.m in Sources */,
 				F921BBAE167F1ECD001B33BF /* JPAppDelegate.m in Sources */,
 				F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */,
