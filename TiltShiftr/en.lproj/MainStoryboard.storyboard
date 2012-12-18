@@ -15,7 +15,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vI9-K8-c1R">
                                 <gestureRecognizers/>
                             </imageView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-sP-WyA">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" barStyle="blackTranslucent" translatesAutoresizingMaskIntoConstraints="NO" id="bL2-sP-WyA">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" type="user" id="FkL-ap-hLr"/>
                                 </constraints>
@@ -49,17 +49,18 @@
                         <constraints>
                             <constraint firstItem="bL2-sP-WyA" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="AXr-Df-T3D"/>
                             <constraint firstItem="bL2-sP-WyA" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="NU9-Uo-Mdl"/>
+                            <constraint firstItem="vI9-K8-c1R" firstAttribute="bottom" secondItem="3" secondAttribute="bottom" type="default" id="We5-0R-9fI"/>
                             <constraint firstItem="vI9-K8-c1R" firstAttribute="top" secondItem="3" secondAttribute="top" type="default" id="a6C-zp-EpE"/>
                             <constraint firstItem="vI9-K8-c1R" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="bF1-Mj-gay"/>
                             <constraint firstItem="vI9-K8-c1R" firstAttribute="leading" secondItem="3" secondAttribute="leading" type="default" id="dPI-bP-Dxl"/>
                             <constraint firstItem="bL2-sP-WyA" firstAttribute="trailing" secondItem="3" secondAttribute="trailing" type="default" id="iez-1A-CO8"/>
-                            <constraint firstItem="bL2-sP-WyA" firstAttribute="top" secondItem="vI9-K8-c1R" secondAttribute="bottom" type="default" id="qGl-Nq-003"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="4Dw-YD-bu0">
                         <barButtonItem key="rightBarButtonItem" systemItem="edit" id="DJD-Ha-m4S"/>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
                         <outlet property="editButton" destination="jf7-iN-rFc" id="YYZ-Gs-aVp"/>
                         <outlet property="imageView" destination="vI9-K8-c1R" id="bIZ-3D-MdF"/>

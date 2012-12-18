@@ -11,6 +11,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <ImageIO/ImageIO.h>
 #import "UIImage_JPResize.h"
+#import "UIImageView_JPContentScale.h"
 #import "JPTiltShift.h"
 #import "PopoverView.h"
 
@@ -41,26 +42,32 @@
 - (void)setupDividers
 {
     CGFloat width = self.imageView.bounds.size.width;
-    CGFloat height = self.imageView.bounds.size.height;
-    self.divider = [[UIView alloc] initWithFrame:CGRectMake(0, height * self.center - 22, width, 44)];
+    self.divider = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     self.divider.backgroundColor = [UIColor clearColor];
     self.divider.alpha = 0.0;
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 18, 1000, 8)]; //long line is long
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 568, 4)]; //max length in landscape
     line.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
     [self.divider addSubview:line];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
     [self.divider addGestureRecognizer:recognizer];
     [self.imageView addSubview:self.divider];
+    [self updateDividers];
+}
+
+- (void)updateDividers
+{
+    CGFloat height = self.image.size.height * self.imageView.jp_contentScale;
+    CGFloat offset = (self.imageView.bounds.size.height - height) / 2;
+    CGRect frame = self.divider.frame;
+    frame.origin.y = offset + height * self.center - 22;
+    frame.size.width = self.imageView.frame.size.width;
+    self.divider.frame = frame;
 }
 
 - (void)viewDidLayoutSubviews
 {
     [super viewWillLayoutSubviews];
-    CGFloat height = self.imageView.bounds.size.height;
-    CGRect frame = self.divider.frame;
-    frame.origin.y = height * self.center - 22;
-    frame.size.width = self.imageView.frame.size.width;
-    self.divider.frame = frame;
+    [self updateDividers];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -177,12 +184,17 @@
     CGPoint translation = [gestureRecognizer translationInView:self.imageView];
     [gestureRecognizer setTranslation:CGPointMake(0, 0) inView:self.imageView];
     CGRect frame = self.divider.frame;
+    CGFloat imageHeight = self.image.size.height * self.imageView.jp_contentScale;
+    CGFloat imageOffset = (self.imageView.bounds.size.height - imageHeight) / 2; //image is centered in imageview
+
     CGFloat y = frame.origin.y + translation.y;
-    y = MAX(y, 0.0);
-    y = MIN(y, self.imageView.bounds.size.height);
+
+    y = MAX(y, imageOffset - 20);
+    y = MIN(y, self.imageView.bounds.size.height - imageOffset - 20);
     frame.origin.y = y;
     self.divider.frame = frame;
-    self.center = y / self.imageView.bounds.size.height;
+
+    self.center = (y - imageOffset + 20) / imageHeight;
     if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
         self.dragging = YES;
         [self liveUpdate];
@@ -269,6 +281,8 @@
         scale = self.view.window.bounds.size.height * 2;
     }
     self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:self.imageView.bounds.size.width];
+    self.center = 0.5;
+    [self updateDividers];
     [self liveUpdate];
 }
 

@@ -29,6 +29,7 @@
 		F99049BE1680926000769B09 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049BD1680926000769B09 /* icon.png */; };
 		F99049C1168093F600769B09 /* 186-ruler.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049BF168093F600769B09 /* 186-ruler.png */; };
 		F99049C2168093F600769B09 /* 186-ruler@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F99049C0168093F600769B09 /* 186-ruler@2x.png */; };
+		F99049C91680C20300769B09 /* UIImageView_JPContentScale.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */; };
 		F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */; };
 		F9AB882B167F41E600C57101 /* example2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB882A167F41E600C57101 /* example2.jpg */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,8 @@
 		F99049BD1680926000769B09 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 		F99049BF168093F600769B09 /* 186-ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "186-ruler.png"; sourceTree = "<group>"; };
 		F99049C0168093F600769B09 /* 186-ruler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "186-ruler@2x.png"; sourceTree = "<group>"; };
+		F99049C71680C20300769B09 /* UIImageView_JPContentScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageView_JPContentScale.h; sourceTree = "<group>"; };
+		F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImageView_JPContentScale.m; sourceTree = "<group>"; };
 		F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPResize.h; sourceTree = "<group>"; };
 		F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPResize.m; sourceTree = "<group>"; };
 		F9AB882A167F41E600C57101 /* example2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example2.jpg; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				F99049A316806D1900769B09 /* JPTiltShift.m */,
 				F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */,
 				F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */,
+				F99049C71680C20300769B09 /* UIImageView_JPContentScale.h */,
+				F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */,
 				F99049B616807DB600769B09 /* PopoverView.h */,
 				F99049B716807DB600769B09 /* PopoverView.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
@@ -235,6 +240,7 @@
 				F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */,
 				F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */,
 				F99049A416806D1900769B09 /* JPTiltShift.m in Sources */,
+				F99049C91680C20300769B09 /* UIImageView_JPContentScale.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
