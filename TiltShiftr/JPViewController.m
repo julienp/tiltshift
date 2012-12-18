@@ -122,6 +122,7 @@
 
 - (IBAction)modify:(id)sender
 {
+    //TODO: barbuttonitem should stay highlighted while editing mode is active
     [self setEditing:!self.editing animated:YES];
 }
 
@@ -324,6 +325,7 @@
     }
     self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:self.imageView.bounds.size.width];
     self.center = 0.5;
+    self.blur = 10;
     [self updateDividers];
     [self liveUpdate];
 }
