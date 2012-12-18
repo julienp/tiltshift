@@ -218,8 +218,13 @@
 
 - (IBAction)blur:(id)sender event:(UIEvent *)event
 {
+    //Hacky way to get the location of the barbutton
     UITouch *touch = [[event allTouches] anyObject];
-    CGPoint point = [touch locationInView:self.view]; //TODO: should be at top center of barbuttonitem
+    UIView *view = touch.view;
+    CGRect frame = [view convertRect:view.bounds toView:self.view.window];
+    CGPoint point = frame.origin;
+    point.x += frame.size.width / 2;
+    point.y += 5;
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
     [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     slider.backgroundColor = [UIColor clearColor];
