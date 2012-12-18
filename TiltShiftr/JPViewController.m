@@ -48,6 +48,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     self.toolbarHidden = NO;
     [self updateDividers];
 }
@@ -99,7 +100,7 @@
     self.divider.backgroundColor = [UIColor clearColor];
     self.divider.alpha = 0.0;
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 568, 4)]; //max length in landscape
-    line.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.5];
+    line.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.5];
     [self.divider addSubview:line];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
     [self.divider addGestureRecognizer:recognizer];
