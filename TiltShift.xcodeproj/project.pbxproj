@@ -19,7 +19,6 @@
 		F921BBB4167F1ECD001B33BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F921BBB3167F1ECD001B33BF /* Default-568h@2x.png */; };
 		F921BBB7167F1ECD001B33BF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F921BBB5167F1ECD001B33BF /* MainStoryboard.storyboard */; };
 		F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921BBB9167F1ECD001B33BF /* JPViewController.m */; };
-		F921BBC5167F2093001B33BF /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F921BBC4167F2093001B33BF /* example.jpg */; };
 		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
 		F97A107B168389C400FB3CED /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107A168389C400FB3CED /* icon72.png */; };
 		F97A107D168389C900FB3CED /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107C168389C900FB3CED /* icon144.png */; };
@@ -35,7 +34,6 @@
 		F99049C91680C20300769B09 /* UIImageView_JPContentScale.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */; };
 		F99049CF1680CA0000769B09 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99049CE1680CA0000769B09 /* QuartzCore.framework */; };
 		F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */ = {isa = PBXBuildFile; fileRef = F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */; };
-		F9AB882B167F41E600C57101 /* example2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F9AB882A167F41E600C57101 /* example2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,7 +54,6 @@
 		F921BBB6167F1ECD001B33BF /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		F921BBB8167F1ECD001B33BF /* JPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPViewController.h; sourceTree = "<group>"; };
 		F921BBB9167F1ECD001B33BF /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
-		F921BBC4167F2093001B33BF /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F97A107A168389C400FB3CED /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		F97A107C168389C900FB3CED /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
@@ -76,7 +73,6 @@
 		F99049CE1680CA0000769B09 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPResize.h; sourceTree = "<group>"; };
 		F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPResize.m; sourceTree = "<group>"; };
-		F9AB882A167F41E600C57101 /* example2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,8 +157,6 @@
 				F99049C0168093F600769B09 /* 186-ruler@2x.png */,
 				F99049B916808D1000769B09 /* 14-gear.png */,
 				F99049BA16808D1000769B09 /* 14-gear@2x.png */,
-				F921BBC4167F2093001B33BF /* example.jpg */,
-				F9AB882A167F41E600C57101 /* example2.jpg */,
 				F921BBA5167F1ECD001B33BF /* TiltShift-Info.plist */,
 				F921BBA6167F1ECD001B33BF /* InfoPlist.strings */,
 				F921BBA9167F1ECD001B33BF /* main.m */,
@@ -232,8 +226,6 @@
 				F921BBB2167F1ECD001B33BF /* Default@2x.png in Resources */,
 				F921BBB4167F1ECD001B33BF /* Default-568h@2x.png in Resources */,
 				F921BBB7167F1ECD001B33BF /* MainStoryboard.storyboard in Resources */,
-				F921BBC5167F2093001B33BF /* example.jpg in Resources */,
-				F9AB882B167F41E600C57101 /* example2.jpg in Resources */,
 				F99049BB16808D1000769B09 /* 14-gear.png in Resources */,
 				F99049BC16808D1000769B09 /* 14-gear@2x.png in Resources */,
 				F99049BE1680926000769B09 /* icon.png in Resources */,
