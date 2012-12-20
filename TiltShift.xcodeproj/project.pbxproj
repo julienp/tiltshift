@@ -40,14 +40,14 @@
 
 /* Begin PBXFileReference section */
 		F916A290168361A700B9758D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
-		F921BB99167F1ECD001B33BF /* TiltShiftr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiltShiftr.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F921BB99167F1ECD001B33BF /* TiltShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiltShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F921BB9D167F1ECD001B33BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F921BB9F167F1ECD001B33BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F921BBA1167F1ECD001B33BF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		F921BBA5167F1ECD001B33BF /* TiltShiftr-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TiltShiftr-Info.plist"; sourceTree = "<group>"; };
+		F921BBA5167F1ECD001B33BF /* TiltShift-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TiltShift-Info.plist"; sourceTree = "<group>"; };
 		F921BBA7167F1ECD001B33BF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F921BBA9167F1ECD001B33BF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		F921BBAB167F1ECD001B33BF /* TiltShiftr-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TiltShiftr-Prefix.pch"; sourceTree = "<group>"; };
+		F921BBAB167F1ECD001B33BF /* TiltShift-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TiltShift-Prefix.pch"; sourceTree = "<group>"; };
 		F921BBAC167F1ECD001B33BF /* JPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPAppDelegate.h; sourceTree = "<group>"; };
 		F921BBAD167F1ECD001B33BF /* JPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPAppDelegate.m; sourceTree = "<group>"; };
 		F921BBAF167F1ECD001B33BF /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		F921BB9A167F1ECD001B33BF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F921BB99167F1ECD001B33BF /* TiltShiftr.app */,
+				F921BB99167F1ECD001B33BF /* TiltShift.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,7 +146,8 @@
 				F99049B716807DB600769B09 /* PopoverView.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
 			);
-			path = TiltShiftr;
+			name = TiltShiftr;
+			path = TiltShift;
 			sourceTree = "<group>";
 		};
 		F921BBA4167F1ECD001B33BF /* Supporting Files */ = {
@@ -162,10 +163,10 @@
 				F99049BA16808D1000769B09 /* 14-gear@2x.png */,
 				F921BBC4167F2093001B33BF /* example.jpg */,
 				F9AB882A167F41E600C57101 /* example2.jpg */,
-				F921BBA5167F1ECD001B33BF /* TiltShiftr-Info.plist */,
+				F921BBA5167F1ECD001B33BF /* TiltShift-Info.plist */,
 				F921BBA6167F1ECD001B33BF /* InfoPlist.strings */,
 				F921BBA9167F1ECD001B33BF /* main.m */,
-				F921BBAB167F1ECD001B33BF /* TiltShiftr-Prefix.pch */,
+				F921BBAB167F1ECD001B33BF /* TiltShift-Prefix.pch */,
 				F921BBAF167F1ECD001B33BF /* Default.png */,
 				F921BBB1167F1ECD001B33BF /* Default@2x.png */,
 				F921BBB3167F1ECD001B33BF /* Default-568h@2x.png */,
@@ -176,9 +177,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F921BB98167F1ECD001B33BF /* TiltShiftr */ = {
+		F921BB98167F1ECD001B33BF /* TiltShift */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F921BBBD167F1ECD001B33BF /* Build configuration list for PBXNativeTarget "TiltShiftr" */;
+			buildConfigurationList = F921BBBD167F1ECD001B33BF /* Build configuration list for PBXNativeTarget "TiltShift" */;
 			buildPhases = (
 				F921BB95167F1ECD001B33BF /* Sources */,
 				F921BB96167F1ECD001B33BF /* Frameworks */,
@@ -189,9 +190,9 @@
 			);
 			dependencies = (
 			);
-			name = TiltShiftr;
+			name = TiltShift;
 			productName = TiltShift;
-			productReference = F921BB99167F1ECD001B33BF /* TiltShiftr.app */;
+			productReference = F921BB99167F1ECD001B33BF /* TiltShift.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +205,7 @@
 				LastUpgradeCheck = 0450;
 				ORGANIZATIONNAME = "Julien Poissonnier";
 			};
-			buildConfigurationList = F921BB93167F1ECD001B33BF /* Build configuration list for PBXProject "TiltShiftr" */;
+			buildConfigurationList = F921BB93167F1ECD001B33BF /* Build configuration list for PBXProject "TiltShift" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -216,7 +217,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F921BB98167F1ECD001B33BF /* TiltShiftr */,
+				F921BB98167F1ECD001B33BF /* TiltShift */,
 			);
 		};
 /* End PBXProject section */
@@ -354,10 +355,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TiltShiftr/TiltShiftr-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/TiltShiftr/TiltShiftr-Info.plist";
+				GCC_PREFIX_HEADER = "TiltShift/TiltShift-Prefix.pch";
+				INFOPLIST_FILE = "TiltShift/TiltShift-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = TiltShiftr;
+				PRODUCT_NAME = TiltShift;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -367,10 +368,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TiltShiftr/TiltShiftr-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/TiltShiftr/TiltShiftr-Info.plist";
+				GCC_PREFIX_HEADER = "TiltShift/TiltShift-Prefix.pch";
+				INFOPLIST_FILE = "TiltShift/TiltShift-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
-				PRODUCT_NAME = TiltShiftr;
+				PRODUCT_NAME = TiltShift;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -379,7 +380,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F921BB93167F1ECD001B33BF /* Build configuration list for PBXProject "TiltShiftr" */ = {
+		F921BB93167F1ECD001B33BF /* Build configuration list for PBXProject "TiltShift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F921BBBB167F1ECD001B33BF /* Debug */,
@@ -388,7 +389,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F921BBBD167F1ECD001B33BF /* Build configuration list for PBXNativeTarget "TiltShiftr" */ = {
+		F921BBBD167F1ECD001B33BF /* Build configuration list for PBXNativeTarget "TiltShift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F921BBBE167F1ECD001B33BF /* Debug */,
