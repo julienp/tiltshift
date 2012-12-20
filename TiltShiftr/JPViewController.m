@@ -185,7 +185,7 @@
 - (IBAction)share:(id)sender
 {
     CGImageRef image = [self processImage:self.originalImage.CGImage];
-    UIImage *sharedImage = [UIImage imageWithCGImage:image];
+    UIImage *sharedImage = [UIImage imageWithCGImage:image scale:1.0 orientation:self.originalImage.imageOrientation];
     CGImageRelease(image);
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[ sharedImage ] applicationActivities:nil];
     [self presentViewController:activityViewController animated:YES completion:NULL];
