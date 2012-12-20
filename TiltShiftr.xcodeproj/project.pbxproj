@@ -183,6 +183,7 @@
 				F921BB95167F1ECD001B33BF /* Sources */,
 				F921BB96167F1ECD001B33BF /* Frameworks */,
 				F921BB97167F1ECD001B33BF /* Resources */,
+				F97A108216838A0600FB3CED /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -244,6 +245,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F97A108216838A0600FB3CED /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "GIT=`which git`\nCOMMIT_NUMBER=`$GIT log --pretty=oneline  | wc -l`\nVERSION_TAG=`$GIT describe --abbrev=0`\necho \"Git describe output: $GIT_DESCRIBE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $COMMIT_NUMBER\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $VERSION_TAG\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F921BB95167F1ECD001B33BF /* Sources */ = {
