@@ -224,9 +224,8 @@
     UITouch *touch = [[event allTouches] anyObject];
     UIView *view = touch.view;
     CGRect frame = [view convertRect:view.bounds toView:self.view];
-    CGPoint point = frame.origin;
-    point.x += frame.size.width / 2;
-    point.y += 5;
+    CGPoint point = CGPointMake(CGRectGetMidX(frame), CGRectGetMinY(frame) + 5);
+
     UISlider *slider = [[UISlider alloc] initWithFrame:CGRectMake(0, 0, 200, 50)];
     [slider addTarget:self action:@selector(sliderChanged:) forControlEvents:UIControlEventValueChanged];
     slider.backgroundColor = [UIColor clearColor];
@@ -234,6 +233,7 @@
     slider.minimumValue = 1;
     slider.value = self.blur;
     slider.continuous = NO;
+
     self.popoverView = [PopoverView showPopoverAtPoint:point inView:self.view withTitle:@"Blur Radius" withContentView:slider delegate:self];
 }
 
@@ -252,9 +252,7 @@
         transition.type = kCATransitionPush;
         transition.subtype = kCATransitionFromTop;
         [self.toolbar.layer addAnimation:transition forKey:nil];
-        CGRect frame = self.toolbar.frame;
-        frame.origin.y -= frame.size.height;
-        self.toolbar.frame = frame;
+        self.toolbar.frame = CGRectOffset(self.toolbar.frame, 0, - self.toolbar.frame.size.height);
         self.toolbarHidden = NO;
         [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     } else {
@@ -264,9 +262,7 @@
         transition.type = kCATransitionPush;
         transition.subtype = kCATransitionFromBottom;
         [self.toolbar.layer addAnimation:transition forKey:nil];
-        CGRect frame = self.toolbar.frame;
-        frame.origin.y += frame.size.height;
-        self.toolbar.frame = frame;
+        self.toolbar.frame = CGRectOffset(self.toolbar.frame, 0, self.toolbar.frame.size.height);
         self.toolbarHidden = YES;
         [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
     }
