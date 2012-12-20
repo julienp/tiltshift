@@ -21,6 +21,8 @@
 		F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921BBB9167F1ECD001B33BF /* JPViewController.m */; };
 		F921BBC5167F2093001B33BF /* example.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F921BBC4167F2093001B33BF /* example.jpg */; };
 		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
+		F97A107B168389C400FB3CED /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107A168389C400FB3CED /* icon72.png */; };
+		F97A107D168389C900FB3CED /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107C168389C900FB3CED /* icon144.png */; };
 		F99049A416806D1900769B09 /* JPTiltShift.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049A316806D1900769B09 /* JPTiltShift.m */; };
 		F99049AB1680730900769B09 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99049AA1680730900769B09 /* AssetsLibrary.framework */; };
 		F99049AD168075D000769B09 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F99049AC168075D000769B09 /* ImageIO.framework */; };
@@ -56,6 +58,8 @@
 		F921BBB9167F1ECD001B33BF /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
 		F921BBC4167F2093001B33BF /* example.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = example.jpg; sourceTree = "<group>"; };
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F97A107A168389C400FB3CED /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
+		F97A107C168389C900FB3CED /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
 		F99049A216806D1900769B09 /* JPTiltShift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTiltShift.h; sourceTree = "<group>"; };
 		F99049A316806D1900769B09 /* JPTiltShift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTiltShift.m; sourceTree = "<group>"; };
 		F99049AA1680730900769B09 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -150,6 +154,8 @@
 			children = (
 				F99049BD1680926000769B09 /* icon.png */,
 				F916A290168361A700B9758D /* icon@2x.png */,
+				F97A107C168389C900FB3CED /* icon144.png */,
+				F97A107A168389C400FB3CED /* icon72.png */,
 				F99049BF168093F600769B09 /* 186-ruler.png */,
 				F99049C0168093F600769B09 /* 186-ruler@2x.png */,
 				F99049B916808D1000769B09 /* 14-gear.png */,
@@ -232,6 +238,8 @@
 				F99049C1168093F600769B09 /* 186-ruler.png in Resources */,
 				F99049C2168093F600769B09 /* 186-ruler@2x.png in Resources */,
 				F916A291168361A700B9758D /* icon@2x.png in Resources */,
+				F97A107B168389C400FB3CED /* icon72.png in Resources */,
+				F97A107D168389C900FB3CED /* icon144.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +339,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TiltShiftr/TiltShiftr-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/TiltShiftr/TiltShiftr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = TiltShiftr;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -342,7 +352,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TiltShiftr/TiltShiftr-Prefix.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/TiltShiftr/TiltShiftr-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = TiltShiftr;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

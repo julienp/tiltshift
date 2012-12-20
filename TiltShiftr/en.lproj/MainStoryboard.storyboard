@@ -66,8 +66,11 @@
                     </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <connections>
+                        <outlet property="blurButton" destination="JFt-Iv-6K7" id="KqT-Lu-O6A"/>
                         <outlet property="editButton" destination="jf7-iN-rFc" id="YYZ-Gs-aVp"/>
                         <outlet property="imageView" destination="vI9-K8-c1R" id="bIZ-3D-MdF"/>
+                        <outlet property="loadPhotoButton" destination="ia7-dD-Z7E" id="xDL-d6-AyM"/>
+                        <outlet property="shareButton" destination="lUM-uD-ijg" id="qMY-qJ-Ntf"/>
                         <outlet property="toolbar" destination="bL2-sP-WyA" id="iIx-aZ-W6c"/>
                     </connections>
                 </viewController>
@@ -96,8 +99,11 @@
                 <relationship kind="action" name="share:"/>
                 <relationship kind="action" name="sliderChanged:" candidateClass="UISlider"/>
                 <relationship kind="action" name="toggleToolbar:"/>
+                <relationship kind="outlet" name="blurButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadPhotoButton" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
             </relationships>
         </class>

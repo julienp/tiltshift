@@ -19,6 +19,9 @@
 @interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, PopoverViewDelegate>
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
 @property (nonatomic, weak) IBOutlet UIBarButtonItem *editButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *shareButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *loadPhotoButton;
+@property (nonatomic, weak) IBOutlet UIBarButtonItem *blurButton;
 @property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, strong) PopoverView *popoverView;
 @property (nonatomic, strong) UIView *divider;
@@ -29,6 +32,7 @@
 @property (nonatomic, assign, getter = isDragging) BOOL dragging;
 @property (nonatomic, strong) NSMutableArray *imageSources;
 @property (nonatomic, assign) BOOL toolbarHidden;
+@property (nonatomic, strong) UIPopoverController *popover;
 @end
 
 @implementation JPViewController
@@ -36,8 +40,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackTranslucent];
-    self.wantsFullScreenLayout = YES;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackTranslucent];
+        self.wantsFullScreenLayout = YES;
+    }
     self.toolbarHidden = NO;
     self.center = 0.5;
     self.blur = 10;
@@ -99,7 +105,8 @@
     self.divider = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 44)];
     self.divider.backgroundColor = [UIColor clearColor];
     self.divider.alpha = 0.0;
-    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, 568, 4)]; //max length in landscape
+    CGFloat maxLength = MAX(CGRectGetMaxX(self.view.window.bounds), CGRectGetMaxY(self.view.window.bounds));
+    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, maxLength, 4)];
     line.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.5];
     [self.divider addSubview:line];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
@@ -156,7 +163,11 @@
         }
         [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel")];
         actionSheet.cancelButtonIndex = self.imageSources.count;
-        [actionSheet showInView:[[UIApplication sharedApplication] keyWindow]];
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+            [actionSheet showInView:self.view];
+        } else {
+            [actionSheet showFromBarButtonItem:self.loadPhotoButton animated:YES];
+        }
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
                                                             message:NSLocalizedString(@"There are no sources available to select a photo", @"There are no sources available to select a photo")
@@ -179,7 +190,12 @@
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = sourceType;
     picker.delegate = self;
-    [self presentViewController:picker animated:YES completion:nil];
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:picker animated:YES completion:nil];
+    } else {
+        self.popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+        [self.popover presentPopoverFromBarButtonItem:self.loadPhotoButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 - (IBAction)share:(id)sender
@@ -188,7 +204,12 @@
     UIImage *sharedImage = [UIImage imageWithCGImage:image scale:1.0 orientation:self.originalImage.imageOrientation];
     CGImageRelease(image);
     UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[ sharedImage ] applicationActivities:nil];
-    [self presentViewController:activityViewController animated:YES completion:NULL];
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:activityViewController animated:YES completion:NULL];
+    } else {
+        self.popover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
+        [self.popover presentPopoverFromBarButtonItem:self.shareButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
 }
 
 - (IBAction)drag:(UIPanGestureRecognizer *)gestureRecognizer
@@ -313,7 +334,14 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+
+    //TODO: loading HUD
+
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    } else {
+        [self.popover dismissPopoverAnimated:YES];
+    }
     self.originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     CGFloat scale = self.view.window.bounds.size.width * 2;
     if (self.originalImage.size.width > self.originalImage.size.height) {
