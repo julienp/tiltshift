@@ -15,6 +15,7 @@
 #import "UIImageView_JPContentScale.h"
 #import "JPTiltShift.h"
 #import "PopoverView.h"
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, PopoverViewDelegate>
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
@@ -33,6 +34,7 @@
 @property (nonatomic, strong) NSMutableArray *imageSources;
 @property (nonatomic, assign) BOOL toolbarHidden;
 @property (nonatomic, strong) UIPopoverController *popover;
+@property (nonatomic, strong) UIPopoverController *sharePopover;
 @end
 
 @implementation JPViewController
@@ -96,6 +98,22 @@
         } completion:^(BOOL finished) {
             self.divider.userInteractionEnabled = NO;
         }];
+    }
+}
+
+- (void)setImage:(UIImage *)image
+{
+    if (_image != image) {
+        _image = image;
+        if (_image) {
+            self.blurButton.enabled = YES;
+            self.editButton.enabled = YES;
+            self.shareButton.enabled = YES;
+        } else {
+            self.blurButton.enabled = NO;
+            self.editButton.enabled = NO;
+            self.shareButton.enabled = NO;
+        }
     }
 }
 
@@ -195,8 +213,17 @@
     }
 }
 
+- (void)hidePopovers
+{
+    [self.popoverView dismiss];
+    [self.sharePopover dismissPopoverAnimated:YES];
+    [self.popover dismissPopoverAnimated:YES];
+}
+
 - (void)showPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
 {
+    [self hidePopovers];
+
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = sourceType;
     picker.delegate = self;
@@ -210,16 +237,24 @@
 
 - (IBAction)share:(id)sender
 {
-    CGImageRef image = [self processImage:self.originalImage.CGImage];
-    UIImage *sharedImage = [UIImage imageWithCGImage:image scale:1.0 orientation:self.originalImage.imageOrientation];
-    CGImageRelease(image);
-    UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[ sharedImage ] applicationActivities:nil];
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-        [self presentViewController:activityViewController animated:YES completion:NULL];
-    } else {
-        self.popover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
-        [self.popover presentPopoverFromBarButtonItem:self.shareButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    }
+    [self hidePopovers];
+
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Processing", @"Processing") maskType:SVProgressHUDMaskTypeClear];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        CGImageRef image = [self processImage:self.originalImage.CGImage];
+        UIImage *sharedImage = [UIImage imageWithCGImage:image scale:1.0 orientation:self.originalImage.imageOrientation];
+        CGImageRelease(image);
+        UIActivityViewController *activityViewController = [[UIActivityViewController alloc] initWithActivityItems:@[ sharedImage ] applicationActivities:nil];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+            if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+                [self presentViewController:activityViewController animated:YES completion:NULL];
+            } else {
+                self.sharePopover = [[UIPopoverController alloc] initWithContentViewController:activityViewController];
+                [self.sharePopover presentPopoverFromBarButtonItem:self.shareButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            }
+        });
+    });
 }
 
 - (IBAction)drag:(UIPanGestureRecognizer *)gestureRecognizer
@@ -251,6 +286,8 @@
 
 - (IBAction)blur:(id)sender event:(UIEvent *)event
 {
+    [self hidePopovers];
+
     //Hacky way to get the location of the barbutton
     UITouch *touch = [[event allTouches] anyObject];
     UIView *view = touch.view;
@@ -344,13 +381,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-
-    //TODO: loading HUD
-
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         [self dismissViewControllerAnimated:YES completion:nil];
     } else {
         [self.popover dismissPopoverAnimated:YES];
+        self.popover = nil;
     }
     self.originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     CGFloat scale = self.view.window.bounds.size.width * 2;
@@ -358,6 +393,7 @@
         scale = self.view.window.bounds.size.height * 2;
     }
     self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:self.imageView.bounds.size.width];
+    self.imageView.image = self.image;
     self.center = 0.5;
     self.blur = 10;
     [self updateDividers];

@@ -29,19 +29,19 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="ddX-5E-uA2"/>
-                                    <barButtonItem image="14-gear.png" style="plain" id="JFt-Iv-6K7">
+                                    <barButtonItem enabled="NO" image="14-gear.png" style="plain" id="JFt-Iv-6K7">
                                         <connections>
                                             <action selector="blur:event:" destination="2" id="DVn-k7-bhv"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="2s8-YG-Wu1"/>
-                                    <barButtonItem image="186-ruler.png" style="plain" id="jf7-iN-rFc">
+                                    <barButtonItem enabled="NO" image="186-ruler.png" style="plain" id="jf7-iN-rFc">
                                         <connections>
                                             <action selector="modify:" destination="2" id="Nqg-Rm-XTk"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Rmx-Nu-9LU"/>
-                                    <barButtonItem style="plain" systemItem="action" id="lUM-uD-ijg">
+                                    <barButtonItem enabled="NO" style="plain" systemItem="action" id="lUM-uD-ijg">
                                         <connections>
                                             <action selector="share:" destination="2" id="jU3-ng-YiZ"/>
                                         </connections>
