@@ -40,10 +40,16 @@
                                             <action selector="modify:" destination="2" id="Nqg-Rm-XTk"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Rmx-Nu-9LU"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="dGJ-Qe-Woc"/>
                                     <barButtonItem enabled="NO" style="plain" systemItem="action" id="lUM-uD-ijg">
                                         <connections>
                                             <action selector="share:" destination="2" id="jU3-ng-YiZ"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Rmx-Nu-9LU"/>
+                                    <barButtonItem image="42-info.png" style="plain" id="2A3-EA-zAv">
+                                        <connections>
+                                            <segue destination="d7b-Te-BlI" kind="modal" identifier="showInfo" id="h2Z-wJ-DNd"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -81,14 +87,78 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="168" y="157"/>
+            <point key="canvasLocation" x="47" y="157"/>
+        </scene>
+        <!--Info View Controller - TiltShift Photos-->
+        <scene sceneID="dR9-qc-rYB">
+            <objects>
+                <viewController id="mDX-NE-vLC" customClass="JPInfoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QUq-Kb-6Km">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cZQ-5W-plf">
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="cZQ-5W-plf" firstAttribute="trailing" secondItem="QUq-Kb-6Km" secondAttribute="trailing" type="default" id="AbD-gz-hLG"/>
+                            <constraint firstItem="cZQ-5W-plf" firstAttribute="leading" secondItem="QUq-Kb-6Km" secondAttribute="leading" type="default" id="dZ6-15-YKz"/>
+                            <constraint firstItem="cZQ-5W-plf" firstAttribute="bottom" secondItem="QUq-Kb-6Km" secondAttribute="bottom" type="default" id="mbV-ld-OWb"/>
+                            <constraint firstItem="cZQ-5W-plf" firstAttribute="top" secondItem="QUq-Kb-6Km" secondAttribute="top" type="default" id="sAO-Uw-qJg"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="TiltShift Photos" id="iF2-UI-ACi">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="tPT-s2-VDq">
+                            <connections>
+                                <action selector="done:" destination="mDX-NE-vLC" id="M4v-vb-Fig"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="webView" destination="cZQ-5W-plf" id="QnK-gD-9IS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcE-UH-af7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1075" y="157"/>
+        </scene>
+        <!--Info Navigation Controller-->
+        <scene sceneID="gZf-Hb-qjh">
+            <objects>
+                <navigationController id="d7b-Te-BlI" customClass="JPInfoNavigationController" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="blackOpaque" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="blackOpaque" id="ox7-KW-H7J">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mDX-NE-vLC" kind="relationship" relationship="rootViewController" id="5JF-rp-czc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3N-oE-wCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="549" y="157"/>
         </scene>
     </scenes>
     <resources>
         <image name="14-gear.png" width="19" height="19"/>
         <image name="186-ruler.png" width="23" height="23"/>
+        <image name="42-info.png" width="19" height="19"/>
     </resources>
     <classes>
+        <class className="JPInfoNavigationController" superclassName="UINavigationController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JPInfoNavigationController.h"/>
+        </class>
+        <class className="JPInfoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/JPInfoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
         <class className="JPViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JPViewController.h"/>
             <relationships>

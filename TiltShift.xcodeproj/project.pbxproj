@@ -11,6 +11,12 @@
 		F901CE0C168E3B2300E83C40 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE0B168E3B2300E83C40 /* up@2x.png */; };
 		F901CE0F168E3C9400E83C40 /* down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE0E168E3C9400E83C40 /* down@2x.png */; };
 		F901CE1E168E4DDF00E83C40 /* placeholder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE1D168E4DDF00E83C40 /* placeholder@2x.png */; };
+		F901CE21168E56AB00E83C40 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE20168E56AB00E83C40 /* logo.png */; };
+		F901CE24168E57BB00E83C40 /* 42-info.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE22168E57BB00E83C40 /* 42-info.png */; };
+		F901CE25168E57BB00E83C40 /* 42-info@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE23168E57BB00E83C40 /* 42-info@2x.png */; };
+		F901CE28168E593800E83C40 /* JPInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F901CE27168E593800E83C40 /* JPInfoViewController.m */; };
+		F901CE2B168E5BB300E83C40 /* JPInfoNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F901CE2A168E5BB200E83C40 /* JPInfoNavigationController.m */; };
+		F901CE2D168E5CED00E83C40 /* about.html in Resources */ = {isa = PBXBuildFile; fileRef = F901CE2C168E5CED00E83C40 /* about.html */; };
 		F916A291168361A700B9758D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F916A290168361A700B9758D /* icon@2x.png */; };
 		F921BB9E167F1ECD001B33BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BB9D167F1ECD001B33BF /* UIKit.framework */; };
 		F921BBA0167F1ECD001B33BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BB9F167F1ECD001B33BF /* Foundation.framework */; };
@@ -46,6 +52,14 @@
 		F901CE0B168E3B2300E83C40 /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up@2x.png"; sourceTree = "<group>"; };
 		F901CE0E168E3C9400E83C40 /* down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down@2x.png"; sourceTree = "<group>"; };
 		F901CE1D168E4DDF00E83C40 /* placeholder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "placeholder@2x.png"; sourceTree = "<group>"; };
+		F901CE20168E56AB00E83C40 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		F901CE22168E57BB00E83C40 /* 42-info.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-info.png"; sourceTree = "<group>"; };
+		F901CE23168E57BB00E83C40 /* 42-info@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "42-info@2x.png"; sourceTree = "<group>"; };
+		F901CE26168E593800E83C40 /* JPInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPInfoViewController.h; sourceTree = "<group>"; };
+		F901CE27168E593800E83C40 /* JPInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPInfoViewController.m; sourceTree = "<group>"; };
+		F901CE29168E5BB200E83C40 /* JPInfoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPInfoNavigationController.h; sourceTree = "<group>"; };
+		F901CE2A168E5BB200E83C40 /* JPInfoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPInfoNavigationController.m; sourceTree = "<group>"; };
+		F901CE2C168E5CED00E83C40 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
 		F916A290168361A700B9758D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		F921BB99167F1ECD001B33BF /* TiltShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiltShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F921BB9D167F1ECD001B33BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -141,17 +155,21 @@
 			children = (
 				F921BBAC167F1ECD001B33BF /* JPAppDelegate.h */,
 				F921BBAD167F1ECD001B33BF /* JPAppDelegate.m */,
-				F921BBB5167F1ECD001B33BF /* MainStoryboard.storyboard */,
-				F921BBB8167F1ECD001B33BF /* JPViewController.h */,
-				F921BBB9167F1ECD001B33BF /* JPViewController.m */,
+				F901CE29168E5BB200E83C40 /* JPInfoNavigationController.h */,
+				F901CE2A168E5BB200E83C40 /* JPInfoNavigationController.m */,
+				F901CE26168E593800E83C40 /* JPInfoViewController.h */,
+				F901CE27168E593800E83C40 /* JPInfoViewController.m */,
 				F99049A216806D1900769B09 /* JPTiltShift.h */,
 				F99049A316806D1900769B09 /* JPTiltShift.m */,
+				F921BBB8167F1ECD001B33BF /* JPViewController.h */,
+				F921BBB9167F1ECD001B33BF /* JPViewController.m */,
+				F921BBB5167F1ECD001B33BF /* MainStoryboard.storyboard */,
+				F99049B616807DB600769B09 /* PopoverView.h */,
+				F99049B716807DB600769B09 /* PopoverView.m */,
 				F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */,
 				F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */,
 				F99049C71680C20300769B09 /* UIImageView_JPContentScale.h */,
 				F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */,
-				F99049B616807DB600769B09 /* PopoverView.h */,
-				F99049B716807DB600769B09 /* PopoverView.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
 			);
 			name = TiltShiftr;
@@ -161,6 +179,9 @@
 		F921BBA4167F1ECD001B33BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F901CE22168E57BB00E83C40 /* 42-info.png */,
+				F901CE23168E57BB00E83C40 /* 42-info@2x.png */,
+				F901CE20168E56AB00E83C40 /* logo.png */,
 				F901CE1D168E4DDF00E83C40 /* placeholder@2x.png */,
 				F901CE0B168E3B2300E83C40 /* up@2x.png */,
 				F901CE0E168E3C9400E83C40 /* down@2x.png */,
@@ -179,6 +200,7 @@
 				F921BBAF167F1ECD001B33BF /* Default.png */,
 				F921BBB1167F1ECD001B33BF /* Default@2x.png */,
 				F921BBB3167F1ECD001B33BF /* Default-568h@2x.png */,
+				F901CE2C168E5CED00E83C40 /* about.html */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -253,6 +275,10 @@
 				F901CE0C168E3B2300E83C40 /* up@2x.png in Resources */,
 				F901CE0F168E3C9400E83C40 /* down@2x.png in Resources */,
 				F901CE1E168E4DDF00E83C40 /* placeholder@2x.png in Resources */,
+				F901CE21168E56AB00E83C40 /* logo.png in Resources */,
+				F901CE24168E57BB00E83C40 /* 42-info.png in Resources */,
+				F901CE25168E57BB00E83C40 /* 42-info@2x.png in Resources */,
+				F901CE2D168E5CED00E83C40 /* about.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +326,8 @@
 				F9AB8824167F3F9300C57101 /* UIImage_JPResize.m in Sources */,
 				F99049A416806D1900769B09 /* JPTiltShift.m in Sources */,
 				F99049C91680C20300769B09 /* UIImageView_JPContentScale.m in Sources */,
+				F901CE28168E593800E83C40 /* JPInfoViewController.m in Sources */,
+				F901CE2B168E5BB300E83C40 /* JPInfoNavigationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

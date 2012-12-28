@@ -33,6 +33,7 @@
 @property (nonatomic, assign, getter = isDragging) BOOL dragging;
 @property (nonatomic, strong) NSMutableArray *imageSources;
 @property (nonatomic, assign) BOOL toolbarHidden;
+@property (nonatomic, assign) BOOL firstLoad;
 @property (nonatomic, strong) UIPopoverController *popover;
 @property (nonatomic, strong) UIPopoverController *sharePopover;
 @end
@@ -47,11 +48,12 @@
         self.wantsFullScreenLayout = YES;
     }
     self.toolbarHidden = NO;
+    self.firstLoad = YES;
+
     self.center = 0.5;
     self.blur = 10;
+
     self.imageView.userInteractionEnabled = YES;
-
-
     self.imageView.image = [UIImage imageNamed:@"placeholder.png"];
     self.imageView.contentMode = UIViewContentModeCenter;
 }
@@ -67,8 +69,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    if (self.image == nil) {
+    if (self.image == nil && self.firstLoad) {
         [self loadImage:nil];
+        self.firstLoad = NO;
     }
 }
 
@@ -80,6 +83,13 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showInfo"]) {
+        [self hidePopovers];
+    }
 }
 
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated
