@@ -49,8 +49,11 @@
     self.toolbarHidden = NO;
     self.center = 0.5;
     self.blur = 10;
-    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.userInteractionEnabled = YES;
+
+
+    self.imageView.image = [UIImage imageNamed:@"placeholder.png"];
+    self.imageView.contentMode = UIViewContentModeCenter;
 }
 
 - (void)viewDidLayoutSubviews
@@ -230,8 +233,12 @@
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
         [self presentViewController:picker animated:YES completion:nil];
     } else {
-        self.popover = [[UIPopoverController alloc] initWithContentViewController:picker];
-        [self.popover presentPopoverFromBarButtonItem:self.loadPhotoButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        if (sourceType == UIImagePickerControllerSourceTypeCamera) {
+            [self presentViewController:picker animated:YES completion:nil];
+        } else {
+            self.popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+            [self.popover presentPopoverFromBarButtonItem:self.loadPhotoButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
     }
 }
 
@@ -313,6 +320,11 @@
 
 - (IBAction)toggleToolbar:(id)sender
 {
+    if (self.image == nil) {
+        [self loadImage:nil];
+        return;
+    }
+
     if (self.toolbarHidden) {
         CATransition *transition = [CATransition animation];
         transition.duration = 0.25;
@@ -393,6 +405,7 @@
         scale = self.view.window.bounds.size.height * 2;
     }
     self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:self.imageView.bounds.size.width];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.image = self.image;
     self.center = 0.5;
     self.blur = 10;
