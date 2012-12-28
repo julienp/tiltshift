@@ -108,6 +108,16 @@
     CGFloat maxLength = MAX(CGRectGetMaxX(self.view.window.bounds), CGRectGetMaxY(self.view.window.bounds));
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, maxLength, 4)];
     line.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.5];
+
+    UIImage *up = [UIImage imageNamed:@"up.png"];
+    UIImageView *upView = [[UIImageView alloc] initWithImage:up];
+    upView.frame = CGRectMake(5, 8, 10, 10);
+    [self.divider addSubview:upView];
+    UIImage *down = [UIImage imageNamed:@"down.png"];
+    UIImageView *downView = [[UIImageView alloc] initWithImage:down];
+    downView.frame = CGRectMake(5, 26, 10, 10);
+    [self.divider addSubview:downView];
+
     [self.divider addSubview:line];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
     [self.divider addGestureRecognizer:recognizer];
@@ -222,8 +232,8 @@
     CGFloat y = frame.origin.y + translation.y;
     CGFloat statusbar = 20; //not sure why this is necessary
     CGFloat min_gap = 10;
-    y = MAX(y, imageOffset - statusbar + min_gap);
-    y = MIN(y, self.imageView.bounds.size.height - imageOffset - statusbar - min_gap);
+    y = MAX(y, imageOffset - statusbar + min_gap + 1); //magic numbers so the top/bottom of arrow hit edge of image. Would be nicer if the up/down.png didn't have deadspace at top/bottom
+    y = MIN(y, self.imageView.bounds.size.height - imageOffset - statusbar - min_gap - 5);
     frame.origin.y = y;
     self.divider.frame = frame;
 

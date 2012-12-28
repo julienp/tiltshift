@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F901CE0C168E3B2300E83C40 /* up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE0B168E3B2300E83C40 /* up@2x.png */; };
+		F901CE0F168E3C9400E83C40 /* down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F901CE0E168E3C9400E83C40 /* down@2x.png */; };
 		F916A291168361A700B9758D /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F916A290168361A700B9758D /* icon@2x.png */; };
 		F921BB9E167F1ECD001B33BF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BB9D167F1ECD001B33BF /* UIKit.framework */; };
 		F921BBA0167F1ECD001B33BF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BB9F167F1ECD001B33BF /* Foundation.framework */; };
@@ -37,6 +39,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F901CE0B168E3B2300E83C40 /* up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "up@2x.png"; sourceTree = "<group>"; };
+		F901CE0E168E3C9400E83C40 /* down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "down@2x.png"; sourceTree = "<group>"; };
 		F916A290168361A700B9758D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
 		F921BB99167F1ECD001B33BF /* TiltShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiltShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F921BB9D167F1ECD001B33BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -149,6 +153,8 @@
 		F921BBA4167F1ECD001B33BF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F901CE0B168E3B2300E83C40 /* up@2x.png */,
+				F901CE0E168E3C9400E83C40 /* down@2x.png */,
 				F99049BD1680926000769B09 /* icon.png */,
 				F916A290168361A700B9758D /* icon@2x.png */,
 				F97A107C168389C900FB3CED /* icon144.png */,
@@ -234,6 +240,8 @@
 				F916A291168361A700B9758D /* icon@2x.png in Resources */,
 				F97A107B168389C400FB3CED /* icon72.png in Resources */,
 				F97A107D168389C900FB3CED /* icon144.png in Resources */,
+				F901CE0C168E3B2300E83C40 /* up@2x.png in Resources */,
+				F901CE0F168E3C9400E83C40 /* down@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
