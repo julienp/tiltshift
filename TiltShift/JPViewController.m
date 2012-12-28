@@ -129,14 +129,17 @@
     CGFloat maxLength = MAX(CGRectGetMaxX(self.view.window.bounds), CGRectGetMaxY(self.view.window.bounds));
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, maxLength, 4)];
     line.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.5];
-
+    CGFloat ipad_gap = 0.0; //up/down arrows are slightly inset on ipad so they dont overlap the black border in landscape
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        ipad_gap = 12.0;
+    }
     UIImage *up = [UIImage imageNamed:@"up.png"];
     UIImageView *upView = [[UIImageView alloc] initWithImage:up];
-    upView.frame = CGRectMake(5, 8, 10, 10);
+    upView.frame = CGRectMake(5 + ipad_gap, 8, 10, 10);
     [self.divider addSubview:upView];
     UIImage *down = [UIImage imageNamed:@"down.png"];
     UIImageView *downView = [[UIImageView alloc] initWithImage:down];
-    downView.frame = CGRectMake(5, 26, 10, 10);
+    downView.frame = CGRectMake(5 + ipad_gap, 26, 10, 10);
     [self.divider addSubview:downView];
 
     [self.divider addSubview:line];
