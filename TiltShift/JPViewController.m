@@ -393,12 +393,10 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else {
-        [self.popover dismissPopoverAnimated:YES];
-        self.popover = nil;
-    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.popover dismissPopoverAnimated:YES];
+    self.popover = nil;
+
     self.originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     CGFloat scale = self.view.window.bounds.size.width * 2;
     if (self.originalImage.size.width > self.originalImage.size.height) {
