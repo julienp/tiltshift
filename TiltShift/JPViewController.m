@@ -347,7 +347,9 @@
         [self.toolbar.layer addAnimation:transition forKey:nil];
         self.toolbar.frame = CGRectOffset(self.toolbar.frame, 0, - self.toolbar.frame.size.height);
         self.toolbarHidden = NO;
-        [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+            [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
+        }
     } else {
         CATransition *transition = [CATransition animation];
         transition.duration = 0.25;
@@ -357,7 +359,9 @@
         [self.toolbar.layer addAnimation:transition forKey:nil];
         self.toolbar.frame = CGRectOffset(self.toolbar.frame, 0, self.toolbar.frame.size.height);
         self.toolbarHidden = YES;
-        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+            [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+        }
     }
 }
 
