@@ -429,7 +429,7 @@
     if (self.originalImage.size.width > self.originalImage.size.height) {
         scale = self.view.window.bounds.size.height * 2;
     }
-    self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:self.imageView.bounds.size.width];
+    self.image = [UIImage imageWithImage:self.originalImage scaledToWidth:scale];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.image = self.image;
     self.center = 0.5;
