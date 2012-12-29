@@ -100,12 +100,14 @@
         if (self.divider == nil) {
             [self setupDividers];
         }
+        [self.editButton setTintColor:[UIColor colorWithHue:0.391 saturation:0.578 brightness:0.984 alpha:1.000]];
         [UIView animateWithDuration:duration animations:^{
             self.divider.alpha = 1.0;
         } completion:^(BOOL finished) {
             self.divider.userInteractionEnabled = YES;
         }];
     } else {
+        [self.editButton setTintColor:[UIColor whiteColor]];
         [UIView animateWithDuration:duration animations:^{
             self.divider.alpha = 0.0;
         } completion:^(BOOL finished) {
@@ -173,7 +175,6 @@
 
 - (IBAction)modify:(id)sender
 {
-    //TODO: barbuttonitem should stay highlighted while editing mode is active
     [self setEditing:!self.editing animated:YES];
 }
 

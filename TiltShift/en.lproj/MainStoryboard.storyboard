@@ -156,6 +156,7 @@
         <class className="JPInfoViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/JPInfoViewController.h"/>
             <relationships>
+                <relationship kind="action" name="done:"/>
                 <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
             </relationships>
         </class>
