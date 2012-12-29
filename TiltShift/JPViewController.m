@@ -40,6 +40,8 @@
 
 @implementation JPViewController
 
+#pragma mark - UIViewController
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -132,6 +134,8 @@
     }
 }
 
+#pragma mark - Dividers
+
 - (void)setupDividers
 {
     CGFloat width = self.imageView.bounds.size.width;
@@ -157,6 +161,7 @@
     [self.divider addSubview:line];
     UIPanGestureRecognizer *recognizer = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(drag:)];
     [self.divider addGestureRecognizer:recognizer];
+    self.divider.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.01];
     [self.imageView addSubview:self.divider];
     [self updateDividers];
 }
@@ -224,36 +229,6 @@
     }
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex < self.imageSources.count) {
-        [self showPickerWithSourceType:[self.imageSources[buttonIndex] integerValue]];
-    }
-}
-
-- (void)hidePopovers
-{
-    [self.popoverView dismiss];
-    [self.sharePopover dismissPopoverAnimated:YES];
-    [self.popover dismissPopoverAnimated:YES];
-}
-
-- (void)showPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
-{
-    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
-    picker.sourceType = sourceType;
-    picker.delegate = self;
-    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-        [self presentViewController:picker animated:YES completion:nil];
-    } else {
-        if (sourceType == UIImagePickerControllerSourceTypeCamera) {
-            [self presentViewController:picker animated:YES completion:nil];
-        } else {
-            self.popover = [[UIPopoverController alloc] initWithContentViewController:picker];
-            [self.popover presentPopoverFromBarButtonItem:self.loadPhotoButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-        }
-    }
-}
 
 - (IBAction)share:(id)sender
 {
@@ -365,6 +340,32 @@
     }
 }
 
+#pragma mark - Helpers
+
+- (void)hidePopovers
+{
+    [self.popoverView dismiss];
+    [self.sharePopover dismissPopoverAnimated:YES];
+    [self.popover dismissPopoverAnimated:YES];
+}
+
+- (void)showPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.sourceType = sourceType;
+    picker.delegate = self;
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
+        [self presentViewController:picker animated:YES completion:nil];
+    } else {
+        if (sourceType == UIImagePickerControllerSourceTypeCamera) {
+            [self presentViewController:picker animated:YES completion:nil];
+        } else {
+            self.popover = [[UIPopoverController alloc] initWithContentViewController:picker];
+            [self.popover presentPopoverFromBarButtonItem:self.loadPhotoButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+        }
+    }
+}
+
 #pragma mark - Update Image
 
 - (void)liveUpdate
@@ -404,6 +405,15 @@
     CIImage *result = filter.outputImage;
     CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];
     return cgImage;
+}
+
+#pragma mark - UIActionSheetDelegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex < self.imageSources.count) {
+        [self showPickerWithSourceType:[self.imageSources[buttonIndex] integerValue]];
+    }
 }
 
 #pragma mark - UIImagePickerControllerDelegate
