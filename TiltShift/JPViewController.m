@@ -36,6 +36,7 @@
 @property (nonatomic, assign) BOOL firstLoad;
 @property (nonatomic, strong) UIPopoverController *popover;
 @property (nonatomic, strong) UIPopoverController *sharePopover;
+@property (nonatomic, strong) UIActionSheet *actionSheet;
 @end
 
 @implementation JPViewController
@@ -204,20 +205,20 @@
     if (self.imageSources.count == 1) {
         [self showPickerWithSourceType:0];
     } else if (self.imageSources.count > 1) {
-        UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil
+        self.actionSheet = [[UIActionSheet alloc] initWithTitle:nil
                                                                  delegate:self
                                                         cancelButtonTitle:nil
                                                    destructiveButtonTitle:nil
                                                         otherButtonTitles:nil];
         for (NSString *title in buttonTitles) {
-            [actionSheet addButtonWithTitle:title];
+            [self.actionSheet addButtonWithTitle:title];
         }
-        [actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel")];
-        actionSheet.cancelButtonIndex = self.imageSources.count;
+        [self.actionSheet addButtonWithTitle:NSLocalizedString(@"Cancel", @"Cancel")];
+        self.actionSheet.cancelButtonIndex = self.imageSources.count;
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-            [actionSheet showInView:self.view];
+            [self.actionSheet showInView:self.view];
         } else {
-            [actionSheet showFromBarButtonItem:self.loadPhotoButton animated:YES];
+            [self.actionSheet showFromBarButtonItem:self.loadPhotoButton animated:YES];
         }
     } else {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:nil
@@ -347,6 +348,7 @@
     [self.popoverView dismiss];
     [self.sharePopover dismissPopoverAnimated:YES];
     [self.popover dismissPopoverAnimated:YES];
+    [self.actionSheet dismissWithClickedButtonIndex:-1 animated:YES];
 }
 
 - (void)showPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
@@ -414,6 +416,7 @@
     if (buttonIndex < self.imageSources.count) {
         [self showPickerWithSourceType:[self.imageSources[buttonIndex] integerValue]];
     }
+    self.actionSheet = nil;
 }
 
 #pragma mark - UIImagePickerControllerDelegate
