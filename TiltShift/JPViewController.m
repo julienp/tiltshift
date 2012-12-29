@@ -180,6 +180,7 @@
 
 - (IBAction)loadImage:(id)sender
 {
+    [self hidePopovers];
     self.imageSources = [[NSMutableArray alloc] init];
     NSMutableArray *buttonTitles = [[NSMutableArray alloc] init];
 
@@ -239,8 +240,6 @@
 
 - (void)showPickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
 {
-    [self hidePopovers];
-
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.sourceType = sourceType;
     picker.delegate = self;
