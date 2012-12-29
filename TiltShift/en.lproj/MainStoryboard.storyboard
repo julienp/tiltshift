@@ -167,39 +167,6 @@
         <image name="186-ruler.png" width="23" height="23"/>
         <image name="42-info.png" width="19" height="19"/>
     </resources>
-    <classes>
-        <class className="JPInfoNavigationController" superclassName="UINavigationController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JPInfoNavigationController.h"/>
-        </class>
-        <class className="JPInfoViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JPInfoViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="JPViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/JPViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="blur:event:"/>
-                <relationship kind="action" name="drag:" candidateClass="UIPanGestureRecognizer"/>
-                <relationship kind="action" name="loadImage:"/>
-                <relationship kind="action" name="modify:"/>
-                <relationship kind="action" name="share:"/>
-                <relationship kind="action" name="sliderChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="toggleToolbar:"/>
-                <relationship kind="outlet" name="blurButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="editButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadPhotoButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="shareButton" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="toolbar" candidateClass="UIToolbar"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
