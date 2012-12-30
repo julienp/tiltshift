@@ -354,7 +354,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "GIT=`which git`\nCOMMIT_NUMBER=`$GIT log --pretty=oneline  | wc -l`\nVERSION_TAG=`$GIT describe --abbrev=0`\necho \"Git describe output: $GIT_DESCRIBE\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $COMMIT_NUMBER\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $VERSION_TAG\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n";
+			shellScript = "GIT=`which git`\nCOMMIT_NUMBER=`$GIT log --pretty=oneline | wc -l | tr -d ' '`\nVERSION_TAG=`$GIT describe --abbrev=0`\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $COMMIT_NUMBER\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleShortVersionString $VERSION_TAG\" \"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\nVERSION=`echo \"$VERSION_TAG ($COMMIT_NUMBER)\"`\necho \"Version: $VERSION\"\nsed -e \"s/{VERSION}/$VERSION/\" -i \"\" $BUILT_PRODUCTS_DIR/TiltShift.app/about.html";
 		};
 /* End PBXShellScriptBuildPhase section */
 
