@@ -1,0 +1,15 @@
+Description:
+Apply tilt-shift effects to your photos to create miniature scenes right on your iOS device. 
+
+* Easily adjust the focus area and control the blur radius
+* Export the photos to your Camera Roll or social networks
+* Universal app for iPhone, iPod Touch and iPad
+
+Keywords:
+tiltshift,tilt-shift,photo,photography,miniature,fake miniature
+
+Support URL:
+http://caffeine.lu/tiltshift/?itunes
+
+Marketing URL:
+http://caffeine.lu/tiltshift/?itunes
