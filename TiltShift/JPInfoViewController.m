@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
     self.webView.delegate = self;
+    self.webView.scrollView.bounces = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated
