@@ -47,7 +47,7 @@
 {
     [super viewDidLoad];
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
-        [[UIApplication sharedApplication] setStatusBarStyle: UIStatusBarStyleBlackTranslucent];
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackTranslucent];
         self.wantsFullScreenLayout = YES;
     }
     self.toolbarHidden = NO;
@@ -146,7 +146,7 @@
     CGFloat maxLength = MAX(CGRectGetMaxX(self.view.window.bounds), CGRectGetMaxY(self.view.window.bounds));
     UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 20, maxLength, 4)];
     line.backgroundColor = [UIColor colorWithWhite:0.8 alpha:0.5];
-    CGFloat ipad_gap = 0.0; //up/down arrows are slightly inset on ipad so they dont overlap the black border in landscape
+    CGFloat ipad_gap = 0.0; // up/down arrows are slightly inset on ipad so they dont overlap the black border in landscape
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
         ipad_gap = 12.0;
     }
@@ -206,10 +206,10 @@
         [self showPickerWithSourceType:0];
     } else if (self.imageSources.count > 1) {
         self.actionSheet = [[UIActionSheet alloc] initWithTitle:nil
-                                                                 delegate:self
-                                                        cancelButtonTitle:nil
-                                                   destructiveButtonTitle:nil
-                                                        otherButtonTitles:nil];
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                         destructiveButtonTitle:nil
+                                              otherButtonTitles:nil];
         for (NSString *title in buttonTitles) {
             [self.actionSheet addButtonWithTitle:title];
         }
@@ -229,7 +229,6 @@
         [alertView show];
     }
 }
-
 
 - (IBAction)share:(id)sender
 {
@@ -259,11 +258,11 @@
     [gestureRecognizer setTranslation:CGPointMake(0, 0) inView:self.imageView];
     CGRect frame = self.divider.frame;
     CGFloat imageHeight = self.image.size.height * self.imageView.jp_contentScale;
-    CGFloat imageOffset = (self.imageView.bounds.size.height - imageHeight) / 2; //image is centered in imageview
+    CGFloat imageOffset = (self.imageView.bounds.size.height - imageHeight) / 2; // image is centered in imageview
     CGFloat y = frame.origin.y + translation.y;
-    CGFloat statusbar = 20; //not sure why this is necessary
+    CGFloat statusbar = 20; // not sure why this is necessary
     CGFloat min_gap = 10;
-    y = MAX(y, imageOffset - statusbar + min_gap + 1); //magic numbers so the top/bottom of arrow hit edge of image. Would be nicer if the up/down.png didn't have deadspace at top/bottom
+    y = MAX(y, imageOffset - statusbar + min_gap + 1); // magic numbers so the top/bottom of arrow hit edge of image. Would be nicer if the up/down.png didn't have deadspace at top/bottom
     y = MIN(y, self.imageView.bounds.size.height - imageOffset - statusbar - min_gap - 5);
     frame.origin.y = y;
     self.divider.frame = frame;
@@ -284,7 +283,7 @@
 {
     [self hidePopovers];
 
-    //Hacky way to get the location of the barbutton
+    // Hacky way to get the location of the barbutton
     UITouch *touch = [[event allTouches] anyObject];
     UIView *view = touch.view;
     CGRect frame = [view convertRect:view.bounds toView:self.view];
@@ -321,7 +320,7 @@
         transition.type = kCATransitionPush;
         transition.subtype = kCATransitionFromTop;
         [self.toolbar.layer addAnimation:transition forKey:nil];
-        self.toolbar.frame = CGRectOffset(self.toolbar.frame, 0, - self.toolbar.frame.size.height);
+        self.toolbar.frame = CGRectOffset(self.toolbar.frame, 0, -self.toolbar.frame.size.height);
         self.toolbarHidden = NO;
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPhone) {
             [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
@@ -386,7 +385,7 @@
 
 - (CGImageRef)processImage:(CGImageRef)cgimage
 {
-    CGFloat top = 1 - MAX(self.center - 0.25, 0.0); //Quartz origin is bottom left
+    CGFloat top = 1 - MAX(self.center - 0.25, 0.0); // Quartz origin is bottom left
     CGFloat bottom = 1 - MIN(self.center + 0.25, 1.0);
     CGFloat center = 1 - self.center;
     CIImage *image = [CIImage imageWithCGImage:cgimage];

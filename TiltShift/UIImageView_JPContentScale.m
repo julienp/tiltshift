@@ -16,7 +16,7 @@
     CGFloat heightScale = self.bounds.size.height / self.image.size.height;
 
     if (self.contentMode == UIViewContentModeScaleToFill) {
-        return (widthScale==heightScale) ? widthScale : NAN;
+        return (widthScale == heightScale) ? widthScale : NAN;
     }
     if (self.contentMode == UIViewContentModeScaleAspectFit) {
         return MIN(widthScale, heightScale);
@@ -25,7 +25,6 @@
         return MAX(widthScale, heightScale);
     }
     return 1.0;
-
 }
 
 @end
