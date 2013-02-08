@@ -437,6 +437,7 @@
     self.center = 0.5;
     self.blur = 10;
     [self updateDividers];
+    [self setEditing:YES animated:YES];
     [self liveUpdate];
 }
 
