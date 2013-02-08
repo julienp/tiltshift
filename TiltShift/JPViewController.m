@@ -426,7 +426,8 @@
     [self.popover dismissPopoverAnimated:YES];
     self.popover = nil;
 
-    self.originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    self.originalImage = [self rotate:originalImage andOrientation:originalImage.imageOrientation];
     CGFloat scale = self.view.window.bounds.size.width * 2;
     if (self.originalImage.size.width > self.originalImage.size.height) {
         scale = self.view.window.bounds.size.height * 2;
@@ -439,6 +440,29 @@
     [self updateDividers];
     [self setEditing:YES animated:YES];
     [self liveUpdate];
+}
+
+// Fix orientation http://stackoverflow.com/a/10548409/289843
+- (UIImage *)rotate:(UIImage *)source andOrientation:(UIImageOrientation)orientation
+{
+    UIGraphicsBeginImageContext(source.size);
+
+    CGContextRef context = UIGraphicsGetCurrentContext();
+
+    if (orientation == UIImageOrientationRight) {
+        CGContextRotateCTM(context, 90/180*M_PI) ;
+    } else if (orientation == UIImageOrientationLeft) {
+        CGContextRotateCTM(context, -90/180*M_PI);
+    } else if (orientation == UIImageOrientationDown) {
+        // Nothing
+    } else if (orientation == UIImageOrientationUp) {
+        CGContextRotateCTM(context, 90/180*M_PI);
+    }
+
+    [source drawAtPoint:CGPointMake(0, 0)];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return image;
 }
 
 #pragma mark - PopoverViewDelegate
