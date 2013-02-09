@@ -27,10 +27,10 @@
 @property (nonatomic, weak) IBOutlet UIToolbar *toolbar;
 @property (nonatomic, strong) PopoverView *popoverView;
 @property (nonatomic, strong) UIView *divider;
-@property (nonatomic, strong) UIImage *image;
+@property (nonatomic, strong) UIImage *image; // the currently shown image, with with the tiltshift effect applied
 @property (nonatomic, strong) UIImage *originalImage;
-@property (nonatomic, assign) CGFloat center;
-@property (nonatomic, assign) CGFloat blur;
+@property (nonatomic, assign) CGFloat center; // the relative location of the blur center ([0, 1] relative to image height)
+@property (nonatomic, assign) CGFloat blur; // blur radius
 @property (nonatomic, assign, getter = isDragging) BOOL dragging;
 @property (nonatomic, strong) NSMutableArray *imageSources;
 @property (nonatomic, assign) BOOL toolbarHidden;
@@ -65,6 +65,7 @@
 - (void)viewDidLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    // show toolbar/statusbar after rotation
     [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationSlide];
     self.toolbarHidden = NO;
     [self updateDividers];
