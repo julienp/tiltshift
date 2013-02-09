@@ -12,6 +12,10 @@ Bugs/Todo:
 
 Uses [PopoverView](https://github.com/runway20/PopoverView) by Oliver Rickard.
 
+## Compilation ##
+
+This project uses [CocoaPods](https://cocoapods.org) to manage dependencies. To compile the project, first install CocoaPods by running `sudo gem install cocoapods` and then run `pod install`. Make sure to open TiltShift.xcworkspace and not TiltShift.xcodeproj in Xcode.
+
 ## License ##
 
 Released under the MIT License, see LICENSE.txt
