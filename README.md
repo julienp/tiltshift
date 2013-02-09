@@ -1,6 +1,6 @@
 # TiltShift Photos #
 
-![TiltShift](https://raw.github.com/julienp/TiltShift/master/icon@2x.png)
+![TiltShift](https://raw.github.com/julienp/tiltshift/master/Images/icon@2x.png)
 
 Apply the tilt-shift effect described in [http://blog.caffeine.lu/creating-a-tilt-shift-effect-with-coreimage.html](http://blog.caffeine.lu/creating-a-tilt-shift-effect-with-coreimage.html) to photos.
 
