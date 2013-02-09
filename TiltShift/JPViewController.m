@@ -11,11 +11,12 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import <ImageIO/ImageIO.h>
 #import <QuartzCore/QuartzCore.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 #import "UIImage_JPResize.h"
 #import "UIImageView_JPContentScale.h"
+#import "UIImage_JPRotate.h"
 #import "JPTiltShift.h"
 #import "PopoverView.h"
-#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface JPViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, PopoverViewDelegate>
 @property (nonatomic, weak) IBOutlet UIImageView *imageView;
@@ -308,6 +309,7 @@
 
 - (IBAction)toggleToolbar:(id)sender
 {
+    // tap on the placeholder to load an initial image
     if (self.image == nil) {
         [self loadImage:nil];
         return;
@@ -427,7 +429,9 @@
     self.popover = nil;
 
     UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
-    self.originalImage = [self rotate:originalImage andOrientation:originalImage.imageOrientation];
+    // the image rotation is stored in EXIF data, but not everything uses this to display the image in the correct orientation
+    // "redraw" the image in the correct orientation
+    self.originalImage = [self.originalImage rotateToOrientation:originalImage.imageOrientation];
     CGFloat scale = self.view.window.bounds.size.width * 2;
     if (self.originalImage.size.width > self.originalImage.size.height) {
         scale = self.view.window.bounds.size.height * 2;
@@ -440,29 +444,6 @@
     [self updateDividers];
     [self setEditing:YES animated:YES];
     [self liveUpdate];
-}
-
-// Fix orientation http://stackoverflow.com/a/10548409/289843
-- (UIImage *)rotate:(UIImage *)source andOrientation:(UIImageOrientation)orientation
-{
-    UIGraphicsBeginImageContext(source.size);
-
-    CGContextRef context = UIGraphicsGetCurrentContext();
-
-    if (orientation == UIImageOrientationRight) {
-        CGContextRotateCTM(context, 90/180*M_PI) ;
-    } else if (orientation == UIImageOrientationLeft) {
-        CGContextRotateCTM(context, -90/180*M_PI);
-    } else if (orientation == UIImageOrientationDown) {
-        // Nothing
-    } else if (orientation == UIImageOrientationUp) {
-        CGContextRotateCTM(context, 90/180*M_PI);
-    }
-
-    [source drawAtPoint:CGPointMake(0, 0)];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    return image;
 }
 
 #pragma mark - PopoverViewDelegate

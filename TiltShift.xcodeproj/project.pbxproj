@@ -35,6 +35,7 @@
 		F921BBB7167F1ECD001B33BF /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F921BBB5167F1ECD001B33BF /* MainStoryboard.storyboard */; };
 		F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921BBB9167F1ECD001B33BF /* JPViewController.m */; };
 		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
+		F960B4B116C684F100F6094F /* UIImage_JPRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = F960B4B016C684F100F6094F /* UIImage_JPRotate.m */; };
 		F97A107B168389C400FB3CED /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107A168389C400FB3CED /* icon72.png */; };
 		F97A107D168389C900FB3CED /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107C168389C900FB3CED /* icon144.png */; };
 		F99049A416806D1900769B09 /* JPTiltShift.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049A316806D1900769B09 /* JPTiltShift.m */; };
@@ -90,6 +91,8 @@
 		F921BBB8167F1ECD001B33BF /* JPViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPViewController.h; sourceTree = "<group>"; };
 		F921BBB9167F1ECD001B33BF /* JPViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPViewController.m; sourceTree = "<group>"; };
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		F960B4AF16C684F100F6094F /* UIImage_JPRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPRotate.h; sourceTree = "<group>"; };
+		F960B4B016C684F100F6094F /* UIImage_JPRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPRotate.m; sourceTree = "<group>"; };
 		F97A107A168389C400FB3CED /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
 		F97A107C168389C900FB3CED /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
 		F99049A216806D1900769B09 /* JPTiltShift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTiltShift.h; sourceTree = "<group>"; };
@@ -219,6 +222,8 @@
 				F99049B716807DB600769B09 /* PopoverView.m */,
 				F9AB8822167F3F9300C57101 /* UIImage_JPResize.h */,
 				F9AB8823167F3F9300C57101 /* UIImage_JPResize.m */,
+				F960B4AF16C684F100F6094F /* UIImage_JPRotate.h */,
+				F960B4B016C684F100F6094F /* UIImage_JPRotate.m */,
 				F99049C71680C20300769B09 /* UIImageView_JPContentScale.h */,
 				F99049C81680C20300769B09 /* UIImageView_JPContentScale.m */,
 				F921BBA4167F1ECD001B33BF /* Supporting Files */,
@@ -372,6 +377,7 @@
 				F99049C91680C20300769B09 /* UIImageView_JPContentScale.m in Sources */,
 				F901CE28168E593800E83C40 /* JPInfoViewController.m in Sources */,
 				F901CE2B168E5BB300E83C40 /* JPInfoNavigationController.m in Sources */,
+				F960B4B116C684F100F6094F /* UIImage_JPRotate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
