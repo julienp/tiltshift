@@ -67,16 +67,16 @@
 		F901CE29168E5BB200E83C40 /* JPInfoNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPInfoNavigationController.h; sourceTree = "<group>"; };
 		F901CE2A168E5BB200E83C40 /* JPInfoNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPInfoNavigationController.m; sourceTree = "<group>"; };
 		F901CE2C168E5CED00E83C40 /* about.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = about.html; sourceTree = "<group>"; };
-		F901CE35168F21F200E83C40 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait~ipad.png"; path = "../Default-Portrait~ipad.png"; sourceTree = "<group>"; };
-		F901CE37168F223E00E83C40 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape~ipad.png"; path = "../Default-Landscape~ipad.png"; sourceTree = "<group>"; };
-		F901CE39168F22B700E83C40 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Landscape@2x~ipad.png"; path = "../Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
-		F901CE3B168F22D100E83C40 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-Portrait@2x~ipad.png"; path = "../Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
-		F901CE3F168F238100E83C40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = ../Default.png; sourceTree = "<group>"; };
-		F901CE41168F23A800E83C40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "../Default@2x.png"; sourceTree = "<group>"; };
-		F901CE43168F23C500E83C40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		F901CE35168F21F200E83C40 /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		F901CE37168F223E00E83C40 /* Default-Landscape~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape~ipad.png"; sourceTree = "<group>"; };
+		F901CE39168F22B700E83C40 /* Default-Landscape@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Landscape@2x~ipad.png"; sourceTree = "<group>"; };
+		F901CE3B168F22D100E83C40 /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		F901CE3F168F238100E83C40 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		F901CE41168F23A800E83C40 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		F901CE43168F23C500E83C40 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F901CE47168F24F500E83C40 /* down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = down.png; sourceTree = "<group>"; };
 		F901CE49168F24FE00E83C40 /* up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = up.png; sourceTree = "<group>"; };
-		F916A290168361A700B9758D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon@2x.png"; path = "../icon@2x.png"; sourceTree = "<group>"; };
+		F916A290168361A700B9758D /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		F921BB99167F1ECD001B33BF /* TiltShift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TiltShift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F921BB9D167F1ECD001B33BF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		F921BB9F167F1ECD001B33BF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -93,8 +93,8 @@
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F960B4AF16C684F100F6094F /* UIImage_JPRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPRotate.h; sourceTree = "<group>"; };
 		F960B4B016C684F100F6094F /* UIImage_JPRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPRotate.m; sourceTree = "<group>"; };
-		F97A107A168389C400FB3CED /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon72.png; path = ../icon72.png; sourceTree = "<group>"; };
-		F97A107C168389C900FB3CED /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon144.png; path = ../icon144.png; sourceTree = "<group>"; };
+		F97A107A168389C400FB3CED /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
+		F97A107C168389C900FB3CED /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
 		F99049A216806D1900769B09 /* JPTiltShift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTiltShift.h; sourceTree = "<group>"; };
 		F99049A316806D1900769B09 /* JPTiltShift.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPTiltShift.m; sourceTree = "<group>"; };
 		F99049AA1680730900769B09 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
@@ -103,7 +103,7 @@
 		F99049B716807DB600769B09 /* PopoverView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PopoverView.m; sourceTree = "<group>"; };
 		F99049B916808D1000769B09 /* 14-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-gear.png"; sourceTree = "<group>"; };
 		F99049BA16808D1000769B09 /* 14-gear@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14-gear@2x.png"; sourceTree = "<group>"; };
-		F99049BD1680926000769B09 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		F99049BD1680926000769B09 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		F99049BF168093F600769B09 /* 186-ruler.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "186-ruler.png"; sourceTree = "<group>"; };
 		F99049C0168093F600769B09 /* 186-ruler@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "186-ruler@2x.png"; sourceTree = "<group>"; };
 		F99049C71680C20300769B09 /* UIImageView_JPContentScale.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImageView_JPContentScale.h; sourceTree = "<group>"; };
@@ -146,6 +146,7 @@
 				F901CE35168F21F200E83C40 /* Default-Portrait~ipad.png */,
 			);
 			name = Default.png;
+			path = ../Images;
 			sourceTree = "<group>";
 		};
 		F901CE46168F248100E83C40 /* Images */ = {
@@ -167,8 +168,10 @@
 				F916A290168361A700B9758D /* icon@2x.png */,
 				F901CE49168F24FE00E83C40 /* up.png */,
 				F901CE0B168E3B2300E83C40 /* up@2x.png */,
+				F901CE20168E56AB00E83C40 /* logo.png */,
 			);
 			name = Images;
+			path = ../Images;
 			sourceTree = "<group>";
 		};
 		F921BB8E167F1ECD001B33BF = {
@@ -239,7 +242,6 @@
 				F901CE45168F23E800E83C40 /* Default.png */,
 				F901CE2C168E5CED00E83C40 /* about.html */,
 				F921BBA6167F1ECD001B33BF /* InfoPlist.strings */,
-				F901CE20168E56AB00E83C40 /* logo.png */,
 				F921BBA9167F1ECD001B33BF /* main.m */,
 				F921BBA5167F1ECD001B33BF /* TiltShift-Info.plist */,
 				F921BBAB167F1ECD001B33BF /* TiltShift-Prefix.pch */,
