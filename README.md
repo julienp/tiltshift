@@ -10,6 +10,8 @@ Bugs/Todo:
 
  *  Large images make your device run out of memory and crash.
 
+Uses [PopoverView](https://github.com/runway20/PopoverView) by Oliver Rickard.
+
 ## License ##
 
 Released under the MIT License, see LICENSE.txt
