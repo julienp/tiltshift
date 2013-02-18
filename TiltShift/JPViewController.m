@@ -430,9 +430,10 @@
     self.popover = nil;
 
     UIImage *originalImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+
     // the image rotation is stored in EXIF data, but not everything uses this to display the image in the correct orientation
     // "redraw" the image in the correct orientation
-    self.originalImage = [self.originalImage rotateToOrientation:originalImage.imageOrientation];
+    self.originalImage = [originalImage rotateToOrientation:originalImage.imageOrientation];
     CGFloat scale = self.view.window.bounds.size.width * 2;
     if (self.originalImage.size.width > self.originalImage.size.height) {
         scale = self.view.window.bounds.size.height * 2;
