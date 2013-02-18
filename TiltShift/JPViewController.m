@@ -386,13 +386,36 @@
     });
 }
 
-- (CGImageRef)processImage:(CGImageRef)cgimage
+- (CGImageRef)processImage:(CGImageRef)cgImage
 {
     CGFloat top = 1 - MAX(self.center - 0.25, 0.0); // Quartz origin is bottom left
     CGFloat bottom = 1 - MIN(self.center + 0.25, 1.0);
     CGFloat center = 1 - self.center;
-    CIImage *image = [CIImage imageWithCGImage:cgimage];
-    CGFloat blurScale = CGImageGetWidth(cgimage) / self.originalImage.size.width;
+    CIImage *image = [CIImage imageWithCGImage:cgImage];
+    CGFloat blurScale = CGImageGetWidth(cgImage) / self.originalImage.size.width;
+
+    static CIContext *context;
+    if (context == nil) {
+        context = [CIContext contextWithOptions:nil];
+    }
+
+    // Switch to software renderer if the image is too big for the GPU
+    // GPU is limited by max texture size
+    // Texture sizes: http://answers.unity3d.com/questions/377239/max-sprite-sheet-size-for-iphone.html
+    // TODO: resize the image if it's still too big for CPU renderer?
+    CGFloat width = CGImageGetWidth(cgImage);
+    CGFloat height = CGImageGetHeight(cgImage);
+    CGFloat maxWidth = context.inputImageMaximumSize.width;
+    CGFloat maxHeight = context.inputImageMaximumSize.height;
+    if (width > maxWidth || height > maxHeight) {
+        context = [CIContext contextWithOptions:@{ kCIContextUseSoftwareRenderer: @YES }];
+    }
+
+#ifdef DEBUG
+    NSLog(@"actual size     {%ld, %ld}", CGImageGetWidth(cgImage), CGImageGetHeight(cgImage));
+    NSLog(@"max input size  %@", NSStringFromCGSize(context.inputImageMaximumSize));
+    NSLog(@"max output size %@", NSStringFromCGSize(context.outputImageMaximumSize));
+#endif
 
     JPTiltShift *filter = [[JPTiltShift alloc] init];
     [filter setDefaults];
@@ -402,13 +425,9 @@
     filter.inputCenter = center;
     filter.inputBottom = bottom;
 
-    static CIContext *context;
-    if (context == nil) {
-        context = [CIContext contextWithOptions:nil];
-    }
     CIImage *result = filter.outputImage;
-    CGImageRef cgImage = [context createCGImage:result fromRect:[result extent]];
-    return cgImage;
+    CGImageRef resultImage = [context createCGImage:result fromRect:[result extent]];
+    return resultImage;
 }
 
 #pragma mark - UIActionSheetDelegate
