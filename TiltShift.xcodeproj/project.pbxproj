@@ -36,6 +36,8 @@
 		F921BBBA167F1ECD001B33BF /* JPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F921BBB9167F1ECD001B33BF /* JPViewController.m */; };
 		F921BBCC167F23D7001B33BF /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F921BBCB167F23D7001B33BF /* CoreImage.framework */; };
 		F960B4B116C684F100F6094F /* UIImage_JPRotate.m in Sources */ = {isa = PBXBuildFile; fileRef = F960B4B016C684F100F6094F /* UIImage_JPRotate.m */; };
+		F9743C7316D2A728001C179F /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F9743C7216D2A728001C179F /* Crashlytics.framework */; };
+		F9743C7516D375FB001C179F /* Crashlytics.txt in Resources */ = {isa = PBXBuildFile; fileRef = F9743C7416D375FB001C179F /* Crashlytics.txt */; };
 		F97A107B168389C400FB3CED /* icon72.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107A168389C400FB3CED /* icon72.png */; };
 		F97A107D168389C900FB3CED /* icon144.png in Resources */ = {isa = PBXBuildFile; fileRef = F97A107C168389C900FB3CED /* icon144.png */; };
 		F99049A416806D1900769B09 /* JPTiltShift.m in Sources */ = {isa = PBXBuildFile; fileRef = F99049A316806D1900769B09 /* JPTiltShift.m */; };
@@ -93,6 +95,8 @@
 		F921BBCB167F23D7001B33BF /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		F960B4AF16C684F100F6094F /* UIImage_JPRotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIImage_JPRotate.h; sourceTree = "<group>"; };
 		F960B4B016C684F100F6094F /* UIImage_JPRotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIImage_JPRotate.m; sourceTree = "<group>"; };
+		F9743C7216D2A728001C179F /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		F9743C7416D375FB001C179F /* Crashlytics.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Crashlytics.txt; sourceTree = "<group>"; };
 		F97A107A168389C400FB3CED /* icon72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon72.png; sourceTree = "<group>"; };
 		F97A107C168389C900FB3CED /* icon144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon144.png; sourceTree = "<group>"; };
 		F99049A216806D1900769B09 /* JPTiltShift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPTiltShift.h; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				F921BBA0167F1ECD001B33BF /* Foundation.framework in Frameworks */,
 				F921BBA2167F1ECD001B33BF /* CoreGraphics.framework in Frameworks */,
 				2DD6837867254EE7BC59D42F /* libPods.a in Frameworks */,
+				F9743C7316D2A728001C179F /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +200,7 @@
 		F921BB9C167F1ECD001B33BF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F9743C7216D2A728001C179F /* Crashlytics.framework */,
 				F99049CE1680CA0000769B09 /* QuartzCore.framework */,
 				F99049AA1680730900769B09 /* AssetsLibrary.framework */,
 				F921BBCB167F23D7001B33BF /* CoreImage.framework */,
@@ -245,6 +251,7 @@
 				F921BBA9167F1ECD001B33BF /* main.m */,
 				F921BBA5167F1ECD001B33BF /* TiltShift-Info.plist */,
 				F921BBAB167F1ECD001B33BF /* TiltShift-Prefix.pch */,
+				F9743C7416D375FB001C179F /* Crashlytics.txt */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -260,6 +267,7 @@
 				F921BB96167F1ECD001B33BF /* Frameworks */,
 				F921BB97167F1ECD001B33BF /* Resources */,
 				F97A108216838A0600FB3CED /* ShellScript */,
+				F9743C7116D2A700001C179F /* ShellScript */,
 				0F065EF26F65469F9E50D440 /* Copy Pods Resources */,
 			);
 			buildRules = (
@@ -330,6 +338,7 @@
 				F901CE4A168F24FE00E83C40 /* up.png in Resources */,
 				F9BDE02316A73FFD00583FF5 /* placeholder@2x.png in Resources */,
 				F9BDE02616A740AB00583FF5 /* placeholder.png in Resources */,
+				F9743C7516D375FB001C179F /* Crashlytics.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +358,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		F9743C7116D2A700001C179F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Crashlytics.framework/run `< ./TiltShift/Crashlytics.txt`";
 		};
 		F97A108216838A0600FB3CED /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -460,6 +482,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49F9B24179864A2897371D29 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TiltShift/TiltShift-Prefix.pch";
 				INFOPLIST_FILE = "TiltShift/TiltShift-Info.plist";
@@ -474,6 +500,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49F9B24179864A2897371D29 /* Pods.xcconfig */;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TiltShift/TiltShift-Prefix.pch";
 				INFOPLIST_FILE = "TiltShift/TiltShift-Info.plist";

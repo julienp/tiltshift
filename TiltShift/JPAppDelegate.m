@@ -7,12 +7,21 @@
 //
 
 #import "JPAppDelegate.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation JPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"Crashlytics" withExtension:@"txt"];
+    NSError *error;
+    NSString *key = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
+    if (key == nil || key.length == 0) {
+        NSLog(@"Error reading Crashlytics key: %@", error);
+        NSLog(@"Make sure you set your key in TiltShift/Crashlytics.txt");
+    } else {
+        [Crashlytics startWithAPIKey:key];
+    }
     return YES;
 }
 
