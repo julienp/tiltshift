@@ -14,6 +14,8 @@ Uses [PopoverView](https://github.com/runway20/PopoverView) by Oliver Rickard.
 
 ## Compilation ##
 
+If you want to use [Crashlytics](http://crashlytics.com) make sure to copy your API key into `TiltShift/Crashlytics.txt`.
+
 This project uses [CocoaPods](https://cocoapods.org) to manage dependencies. To compile the project, first install CocoaPods by running `sudo gem install cocoapods` and then run `pod install`. Make sure to open TiltShift.xcworkspace and not TiltShift.xcodeproj in Xcode.
 
 ## License ##
